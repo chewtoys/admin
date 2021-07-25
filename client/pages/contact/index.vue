@@ -2,18 +2,23 @@
   <main-template :user-status="userStatus">
     <modal title="問い合わせを確認する" @cancel="cancel">
       <div class="contact">
-        <div v-for="item in contacts.item" :key="item.id">
-          <div v-if="item.page === state.activePage">
+        <div v-for="item in contactData" :key="item.id">
+          <template v-if="item.page === activePage">
             <div class="px-4 py-2">
               {{ titleText(item) }}
             </div>
-          </div>
+            <div
+              class="px-4 py-2 text-gray-600"
+              v-html="descriptionText(item)"
+            />
+            <hr style="width: 60%; margin: 0 auto" />
+          </template>
         </div>
 
         <j-pagination
-          :items="contacts.item !== undefined ? contacts.item : []"
-          :page="state.activePage"
-          :per-page="state.perPage"
+          :items="contactData !== undefined ? contactData : []"
+          :page="activePage"
+          :per-page="perPage"
           @handlePage="applyPage"
         />
       </div>
@@ -22,7 +27,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, SetupContext } from '@vue/composition-api'
+import {
+  defineComponent,
+  SetupContext,
+  ref,
+  useAsync
+} from '@nuxtjs/composition-api'
 
 import UserComposable from '~/composables/user'
 import ContactComposable from '~/composables/contact'
@@ -39,15 +49,14 @@ export default defineComponent({
   },
   middleware: 'auth',
   setup(props: {}, ctx: SetupContext) {
+    const contactData = ref()
     const userModule = UserComposable(props, ctx)
     const contactModule = ContactComposable(props, ctx)
-    return { ...userModule, ...contactModule }
-  },
-  async asyncData() {
-    const contacts = await fetchContacts()
-    return {
-      contacts: contacts
-    }
+    useAsync(async () => {
+      const contacts = await fetchContacts()
+      contactData.value = contacts.item
+    })
+    return { ...userModule, ...contactModule, contactData }
   }
 })
 </script>

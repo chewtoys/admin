@@ -10,10 +10,10 @@
         <div :style="{ padding: '8px 0' }">
           <v-single-picker
             ref="single-picker"
-            :show-dropdown="datePicker.showDropdown"
-            :auto-apply="datePicker.autoApply"
-            :linked-calendars="datePicker.linkedCalendars"
-            :date="datePicker.requestDate"
+            :show-dropdown="showDropdown"
+            :auto-apply="autoApply"
+            :linked-calendars="linkedCalendars"
+            :date="requestDate"
             opens="right"
             @update="updateValues"
             @toggle="checkOpen"
@@ -26,34 +26,34 @@
         <div :style="{ padding: '8px 0' }">
           <j-select
             :options="airportOptions"
-            :values="state.form.departure"
+            :values="departure"
             @handleSelect="applyDeparture"
           />
         </div>
         <div :style="{ padding: '8px 0' }">
           <j-select
             :options="airportOptions"
-            :values="state.form.arrival"
+            :values="arrival"
             @handleSelect="applyArrival"
           />
         </div>
         <div :style="{ padding: '8px 0' }">
           <j-select
             :options="airlineOptions"
-            :values="state.form.airline"
+            :values="airline"
             @handleSelect="applyAirline"
           />
         </div>
         <div :style="{ padding: '8px 0' }">
           <j-select
             :options="boardingTypeOptions"
-            :values="state.form.boardingType"
+            :values="boardingType"
             @handleSelect="applyBoardingType"
           />
         </div>
         <div :style="{ padding: '8px 0' }">
           <j-input
-            :text="state.form.registration"
+            :text="registration"
             placeholder="レジ"
             @handleInput="applyRegistration"
           />
@@ -116,7 +116,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, SetupContext } from '@vue/composition-api'
+import {
+  defineComponent,
+  SetupContext,
+  ref,
+  useAsync
+} from '@nuxtjs/composition-api'
 
 import UserComposable from '~/composables/user'
 import FlightComposable from '~/composables/flight'
@@ -141,18 +146,30 @@ export default defineComponent({
   },
   middleware: 'auth',
   setup(props: {}, ctx: SetupContext) {
+    const flights = ref()
+    const chartData = ref()
+    const localeChartData = ref()
+    const airlineChartData = ref()
+    const boardingTypeChartData = ref()
     const userModule = UserComposable(props, ctx)
     const flightModule = FlightComposable(props, ctx)
-    return { ...userModule, ...flightModule }
-  },
-  async asyncData() {
-    const flights = await fetchFlights()
+    useAsync(async () => {
+      flights.value = await fetchFlights()
+      chartData.value = await drawChart(flights.value.item)
+      localeChartData.value = await drawLocaleChart(flights.value.item)
+      airlineChartData.value = await drawAirlineChart(flights.value.item)
+      boardingTypeChartData.value = await drawBoardingTypeChart(
+        flights.value.item
+      )
+    })
     return {
-      flights: flights,
-      chartData: drawChart(flights.item),
-      localeChartData: drawLocaleChart(flights.item),
-      airlineChartData: drawAirlineChart(flights.item),
-      boardingTypeChartData: drawBoardingTypeChart(flights.item)
+      ...userModule,
+      ...flightModule,
+      flights,
+      chartData,
+      localeChartData,
+      airlineChartData,
+      boardingTypeChartData
     }
   }
 })

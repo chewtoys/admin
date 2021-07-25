@@ -9,7 +9,8 @@ module.exports = {
     transformIgnorePatterns: ['/node_modules/'],
     moduleNameMapper: {
         '^~/(.*)$': '<rootDir>/client/$1',
-        '^@/(.*)$': '<rootDir>/client/$1'
+        '^@/(.*)$': '<rootDir>/client/$1',
+        '@nuxtjs/composition-api': '@nuxtjs/composition-api/lib/cjs/entrypoint.js'
     },
     testMatch: [
         '**/tests/unit/**/*.spec.(js|jsx|ts|tsx)|**/__tests__/*.(js|jsx|ts|tsx)'

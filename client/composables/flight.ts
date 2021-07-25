@@ -1,4 +1,4 @@
-import { SetupContext, reactive } from '@vue/composition-api'
+import { SetupContext, ref } from '@nuxtjs/composition-api'
 import dayjs from 'dayjs'
 
 import { addFlight } from '~/services/flightService'
@@ -14,32 +14,19 @@ import {
 import { getTimeFormat } from '~/utils/date'
 
 export default (props: {}, ctx: SetupContext) => {
-  const datePicker = reactive({
-    showDropdown: true as boolean,
-    autoApply: false as boolean,
-    linkedCalendars: true as boolean,
-    requestDate: dayjs().format('YYYY/MM/DD') as string
-  })
+  const flights = ref<ItemDataList>()
 
-  const state = reactive({
-    activePage: 1 as number,
-    flights: {} as ItemDataList,
-    chartData: [] as any,
-    localeChartData: [] as any,
-    airlineChartData: [] as any,
-    boardingTypeChartData: [] as any,
-    chartOptions: {
-      bars: 'horizontal'
-    },
-    form: {
-      time: '' as string,
-      departure: 0 as number,
-      arrival: 0 as number,
-      airline: 0 as number,
-      boardingType: 0 as number,
-      registration: '' as string
-    }
-  })
+  const requestDate = ref(dayjs().format('YYYY/MM/DD'))
+  const time = ref('')
+  const departure = ref(0)
+  const arrival = ref(0)
+  const airline = ref(0)
+  const boardingType = ref(0)
+  const registration = ref('')
+
+  const showDropdown = ref(true)
+  const autoApply = ref(false)
+  const linkedCalendars = ref(true)
 
   const departureText = (value: number) => {
     return getAirportName(value)
@@ -59,37 +46,33 @@ export default (props: {}, ctx: SetupContext) => {
     )})`
   }
 
-  const applyPage = (value: number) => {
-    state.activePage = value
-  }
-
   const timeFormat = (t) => {
     return getTimeFormat(t)
   }
 
   const applyDeparture = (value) => {
-    state.form.departure = value
+    departure.value = value
   }
 
   const applyArrival = (value) => {
-    state.form.arrival = value
+    arrival.value = value
   }
 
   const applyAirline = (value) => {
-    state.form.airline = value
+    airline.value = value
   }
 
   const applyBoardingType = (value) => {
-    state.form.boardingType = value
+    boardingType.value = value
   }
 
   const applyRegistration = (value) => {
-    state.form.registration = value
+    registration.value = value
   }
 
   const updateValues = (value: string): void => {
-    datePicker.requestDate = value
-    state.form.time = dayjs(value).format()
+    requestDate.value = value
+    time.value = dayjs(value).format()
   }
 
   const checkOpen = (open: any): void => {
@@ -97,12 +80,12 @@ export default (props: {}, ctx: SetupContext) => {
   }
 
   const reset = () => {
-    state.form.time = dayjs().format('YYYY/MM/DD')
-    state.form.departure = 0
-    state.form.arrival = 0
-    state.form.airline = 0
-    state.form.boardingType = 0
-    state.form.registration = ''
+    time.value = dayjs().format('YYYY/MM/DD')
+    departure.value = 0
+    arrival.value = 0
+    airline.value = 0
+    boardingType.value = 0
+    registration.value = ''
   }
 
   const cancel = () => {
@@ -110,13 +93,29 @@ export default (props: {}, ctx: SetupContext) => {
   }
 
   const postFlight = async () => {
-    await addFlight(state.form)
+    await addFlight({
+      time: time.value,
+      departure: departure.value,
+      arrival: arrival.value,
+      airline: airline.value,
+      boardingType: boardingType.value,
+      registration: registration.value
+    })
     reset()
   }
 
   return {
-    datePicker,
-    state,
+    showDropdown,
+    autoApply,
+    linkedCalendars,
+    flights,
+    requestDate,
+    time,
+    departure,
+    arrival,
+    airline,
+    boardingType,
+    registration,
     airportOptions: AIRPORT_LIST,
     airlineOptions: AIRLINE_LIST,
     boardingTypeOptions: BOARDING_TYPE_LIST,
@@ -125,7 +124,6 @@ export default (props: {}, ctx: SetupContext) => {
     airlineText,
     descriptionText,
     timeFormat,
-    applyPage,
     applyDeparture,
     applyArrival,
     applyAirline,

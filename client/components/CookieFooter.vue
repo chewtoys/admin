@@ -11,7 +11,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, SetupContext } from '@vue/composition-api'
+import { defineComponent, SetupContext } from '@nuxtjs/composition-api'
 
 import CookieComposable from '~/composables/cookie'
 

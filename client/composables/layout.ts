@@ -1,4 +1,4 @@
-import { ref, provide, inject, SetupContext } from '@vue/composition-api'
+import { ref, provide, inject, SetupContext } from '@nuxtjs/composition-api'
 
 import { MENU_LIST } from '~/utils/layout'
 

@@ -1,27 +1,28 @@
-import { SetupContext, reactive } from '@vue/composition-api'
+import { SetupContext, ref } from '@nuxtjs/composition-api'
 import firebase from 'firebase'
 
 import { addPhoto } from '~/services/photoService'
 
 export default (props: {}, ctx: SetupContext) => {
-  const state = reactive({
-    name: '' as string,
-    content: '' as string
-  })
+  const name = ref('')
+  const content = ref('')
 
   const reset = () => {
-    state.name = ''
-    state.content = ''
+    name.value = ''
+    content.value = ''
   }
 
   const postPhoto = async () => {
-    await addPhoto(state)
+    await addPhoto({
+      name: name.value,
+      content: content.value
+    })
     reset()
   }
 
   const onFileChange = (e) => {
     const files = e.target.files
-    state.name = files[0].name.replace(/.png/g, '')
+    name.value = files[0].name.replace(/.png/g, '')
 
     const fr = new FileReader()
     fr.readAsDataURL(files[0])
@@ -31,16 +32,17 @@ export default (props: {}, ctx: SetupContext) => {
   }
 
   const upload = (file) => {
-    const storageRef = firebase.storage().ref().child(state.name)
+    const storageRef = firebase.storage().ref().child(`/aviation/${name.value}`)
     storageRef.put(file).then((snapshot) => {
       snapshot.ref.getDownloadURL().then((downloadURL) => {
-        state.content = downloadURL
+        content.value = downloadURL
       })
     })
   }
 
   return {
-    state,
+    name,
+    content,
     reset,
     postPhoto,
     onFileChange,

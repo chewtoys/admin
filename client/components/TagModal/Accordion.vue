@@ -24,7 +24,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, SetupContext } from '@vue/composition-api'
+import { defineComponent, SetupContext } from '@nuxtjs/composition-api'
 import AccordionComposable from '~/composables/accordion'
 import PresentationalClass from './presentational/Class.vue'
 import PresentationalListItem from './presentational/ListItem.vue'

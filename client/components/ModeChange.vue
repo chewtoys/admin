@@ -8,7 +8,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, SetupContext } from '@vue/composition-api'
+import { defineComponent, SetupContext } from '@nuxtjs/composition-api'
+
 import { useLayout } from '~/composables/layout'
 
 export default defineComponent({

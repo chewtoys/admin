@@ -1,4 +1,4 @@
-import { SetupContext } from '@vue/composition-api'
+import { SetupContext } from '@nuxtjs/composition-api'
 
 export default (props: {}, ctx: SetupContext) => {
   const message =

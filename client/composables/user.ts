@@ -1,11 +1,8 @@
-import { computed, SetupContext, reactive } from '@vue/composition-api'
+import { computed, SetupContext, ref } from '@nuxtjs/composition-api'
 
 export default (props: {}, ctx: SetupContext) => {
-  const state = reactive({
-    email: '',
-    password: '',
-    isForm: true
-  })
+  const email = ref('')
+  const password = ref('')
 
   const userStatus = computed(() => {
     return ctx.root.$store.state.product.userStatus
@@ -13,8 +10,8 @@ export default (props: {}, ctx: SetupContext) => {
 
   const login = async () => {
     await ctx.root.$store.dispatch('product/signIn', {
-      email: state.email,
-      password: state.password
+      email: email.value,
+      password: password.value
     })
 
     if (ctx.root.$store.state.product.userStatus) {
@@ -30,15 +27,16 @@ export default (props: {}, ctx: SetupContext) => {
   }
 
   const applyEmail = (value) => {
-    state.email = value
+    email.value = value
   }
 
   const applyPassword = (value) => {
-    state.password = value
+    password.value = value
   }
 
   return {
-    state,
+    email,
+    password,
     userStatus,
     login,
     logout,

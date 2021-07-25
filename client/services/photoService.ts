@@ -1,3 +1,5 @@
+import dayjs from 'dayjs'
+
 import { connectCollection } from './collectionService'
 import { isValidText } from '~/store/utils'
 import { ItemDataList } from '~/types/database'
@@ -33,7 +35,8 @@ export const addPhoto = async ({ name, content }: Photo) => {
 
   collection.add({
     name: name,
-    content: content
+    content: content,
+    time: dayjs().format('YYYY-MM-DD HH:mm')
   })
 }
 
