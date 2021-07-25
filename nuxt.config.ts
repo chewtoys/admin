@@ -99,7 +99,8 @@ export default {
         typeCheck: true,
         ignoreNotFoundWarnings: true
       }
-    ]
+    ],
+    '@nuxtjs/composition-api/module'
   ],
 
   modules: [
@@ -123,7 +124,6 @@ export default {
     '~/plugins/firebase.ts',
     '~/plugins/j-stylebook.ts',
     '~/plugins/picker.ts',
-    '~/plugins/composition-api.ts',
     '~/plugins/vue-chart.ts'
     // {
     //   src: '~/plugins/vue-cookie.ts',

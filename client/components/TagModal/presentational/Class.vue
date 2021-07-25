@@ -1,10 +1,10 @@
 <template>
   <div>
     <div class="item-class-accordion">
-      <div :class="{ 'is-opened': state.isAccordionOpened }" class="item-class">
+      <div :class="{ 'is-opened': isAccordionOpened }" class="item-class">
         <a
           class="item-class-name"
-          @click.prevent="state.isAccordionOpened = !state.isAccordionOpened"
+          @click.prevent="isAccordionOpened = !isAccordionOpened"
         >
           <!--
           <svg-element name="caret-right" />
@@ -30,7 +30,7 @@
         @before-leave="beforeLeave"
         @leave="leave"
       >
-        <div v-if="state.isAccordionOpened" class="item-list">
+        <div v-if="isAccordionOpened" class="item-list">
           <slot />
         </div>
       </transition>
@@ -43,8 +43,8 @@ import {
   defineComponent,
   SetupContext,
   computed,
-  reactive
-} from '@vue/composition-api'
+  ref
+} from '@nuxtjs/composition-api'
 
 // const SvgElement = () => import('~/components/SvgElement.vue')
 
@@ -78,9 +78,7 @@ export default defineComponent({
     }
   },
   setup(props: ClassProps, ctx: SetupContext) {
-    const state = reactive({
-      isAccordionOpened: false
-    })
+    const isAccordionOpened = ref(false)
 
     const getIconsColorClass = computed(() => {
       if (props.isSelectedAll) {
@@ -117,7 +115,7 @@ export default defineComponent({
     }
 
     return {
-      state,
+      isAccordionOpened,
       getIconsColorClass,
       getIconsStyle,
       handleClickFolderIcon,

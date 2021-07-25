@@ -23,7 +23,7 @@
         <div class="my-4 flex justify-center item-center">
           <j-input
             placeholder="メールアドレス"
-            :text="state.email"
+            :text="email"
             @handleInput="applyEmail"
           />
         </div>
@@ -31,7 +31,7 @@
           <j-input
             placeholder="パスワード"
             input-type="password"
-            :text="state.password"
+            :text="password"
             password
             @handleInput="applyPassword"
           />
@@ -45,7 +45,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, SetupContext } from '@vue/composition-api'
+import { defineComponent, SetupContext } from '@nuxtjs/composition-api'
+
 import UserComposable from '~/composables/user'
 import { useLayout } from '~/composables/layout'
 

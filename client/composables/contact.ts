@@ -1,17 +1,19 @@
-import { SetupContext, reactive } from '@vue/composition-api'
+import { SetupContext, ref } from '@nuxtjs/composition-api'
 
 export default (props, ctx: SetupContext) => {
-  const state = reactive({
-    activePage: 1,
-    perPage: 20
-  })
+  const activePage = ref(1)
+  const perPage = ref(20)
 
   const titleText = (item: any) => {
-    return `${item.data.category.text} / ${item.data.title}`
+    return item.data.title
+  }
+
+  const descriptionText = (item: any) => {
+    return item.data.description
   }
 
   const applyPage = (value: number) => {
-    state.activePage = value
+    activePage.value = value
   }
 
   const cancel = () => {
@@ -19,8 +21,10 @@ export default (props, ctx: SetupContext) => {
   }
 
   return {
-    state,
+    activePage,
+    perPage,
     titleText,
+    descriptionText,
     applyPage,
     cancel
   }

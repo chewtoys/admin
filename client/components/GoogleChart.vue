@@ -3,11 +3,9 @@
 </template>
 
 <script>
-import { defineComponent } from '@vue/composition-api'
-
 import { GChart } from 'vue-google-charts'
 
-export default defineComponent({
+export default {
   components: {
     GChart
   },
@@ -29,5 +27,5 @@ export default defineComponent({
       }
     }
   }
-})
+}
 </script>

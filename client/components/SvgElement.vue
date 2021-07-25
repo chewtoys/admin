@@ -3,7 +3,11 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, SetupContext, computed } from '@vue/composition-api'
+import {
+  defineComponent,
+  SetupContext,
+  computed
+} from '@nuxtjs/composition-api'
 
 type SvgProps = {
   name: string

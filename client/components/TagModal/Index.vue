@@ -7,14 +7,14 @@
     />
 
     <div>
-      <template v-for="tag in state.tags">
+      <template v-for="tag in tags">
         <j-label :key="tag" :text="tagText(tag)" />
       </template>
     </div>
 
-    <div v-if="state.showModal === true">
+    <div v-if="showModal === true">
       <div class="modal-mask" @click.self="modalClose">
-        <div :style="state.modalWrapperStyle">
+        <div :style="modalWrapperStyle">
           <div class="modal-container">
             <div class="header">
               <span class="header-title"> カテゴリー選択 </span>
@@ -34,7 +34,7 @@
                 </div>
                 <div class="list">
                   <div
-                    v-for="(itemClass, index) in state.itemClasses"
+                    v-for="(itemClass, index) in itemClasses"
                     :key="index"
                     :index="itemClass.itemClassName"
                   >
@@ -46,7 +46,7 @@
                         :label-text="key === 0 ? itemClass.itemClassName : ''"
                         :title="item.itemClassItemName"
                         :items="item.items"
-                        :selected-ids="state.tags"
+                        :selected-ids="tags"
                         @handleItemClassAll="updateItemClassAll"
                         @handleItemClass="updateItemClass"
                         @handleDeselectItemClassAll="deselectItemClassAll"
@@ -59,18 +59,18 @@
               <div class="column">
                 <div class="selected-tags-header">
                   <div
-                    :class="{ exists: state.tags.length > 0 }"
+                    :class="{ exists: tags.length > 0 }"
                     class="selected-tags"
                   >
                     選択中のカテゴリー
                     <span class="selected-tags-badge">
-                      {{ state.tags.length }}
+                      {{ tags.length }}
                     </span>
                   </div>
                   <j-button text="全て削除" @handleClick="deselectTagAll" />
                 </div>
                 <div class="list">
-                  <template v-if="state.tags.length === 0">
+                  <template v-if="tags.length === 0">
                     <div class="empty-message-box">
                       <div class="empty-message">
                         カテゴリーを設定してください
@@ -107,9 +107,10 @@
 import {
   defineComponent,
   SetupContext,
-  reactive,
-  computed
-} from '@vue/composition-api'
+  computed,
+  ref
+} from '@nuxtjs/composition-api'
+
 import { AccordionItemClass } from '~/types/utils'
 import { CATEGORIES } from '~/utils/tag'
 import { modalStyle, CategoryItems } from '~/utils/tag'
@@ -129,24 +130,25 @@ export default defineComponent({
     }
   },
   setup(props: {}, ctx: SetupContext) {
-    const state = reactive({
-      modalWrapperStyle: {} as object,
-      showModal: false as boolean,
-      itemClasses: CategoryItems as AccordionItemClass[],
-      tags: [] as number[],
-      tagsInMemory: [] as number[]
-    })
+    const modalWrapperStyle = ref({})
+    const showModal = ref(false)
+    const itemClasses = ref<Array<AccordionItemClass>>(CategoryItems)
+    const tags = ref<number[]>([])
+    const tagsInMemory = ref<number[]>([])
 
     const selectedTags = computed(() => {
       let result: any = []
-      state.tags.map((id: any) => {
+      tags.value.map((id: any) => {
         result.push(id)
       })
       return result
     })
 
     return {
-      state,
+      modalWrapperStyle,
+      showModal,
+      itemClasses,
+      tags,
       selectedTags,
       tagText(tagId: number) {
         let result: string = ''
@@ -158,43 +160,43 @@ export default defineComponent({
         return result
       },
       cancel() {
-        state.tags = [...state.tagsInMemory]
-        state.showModal = false
+        tags.value = [...tagsInMemory.value]
+        showModal.value = false
       },
       submit() {
-        state.tagsInMemory = [...state.tags]
-        state.showModal = false
-        ctx.emit('update', state.tags)
+        tagsInMemory.value = [...tags.value]
+        showModal.value = false
+        ctx.emit('update', tags.value)
       },
       displayModal() {
-        state.modalWrapperStyle = modalStyle('', '', '', '', '', '')
-        state.tags = [...state.tagsInMemory]
-        state.showModal = true
+        modalWrapperStyle.value = modalStyle('', '', '', '', '', '')
+        tags.value = [...tagsInMemory.value]
+        showModal.value = true
       },
       modalClose() {
-        state.tagsInMemory = [...state.tags]
-        state.showModal = false
+        tagsInMemory.value = [...tags.value]
+        showModal.value = false
       },
       deselectTagAll() {
-        state.tags = []
+        tags.value = []
       },
       updateItemClassAll(ids: number[]) {
         ids.forEach((id: number) => {
-          !state.tags.includes(id)
+          !tags.value.includes(id)
         })
-        state.tags = ids
-          .filter((id) => !state.tags.includes(id))
-          .concat(state.tags)
+        tags.value = ids
+          .filter((id) => !tags.value.includes(id))
+          .concat(tags.value)
       },
       updateItemClass(id: number) {
-        if (state.tags.includes(id)) {
-          state.tags = state.tags.filter((tagId: number) => tagId !== id)
+        if (tags.value.includes(id)) {
+          tags.value = tags.value.filter((tagId: number) => tagId !== id)
           return
         }
-        state.tags.unshift(id)
+        tags.value.unshift(id)
       },
       deselectItemClassAll(ids) {
-        state.tags = state.tags.filter((tagId: number) => !ids.includes(tagId))
+        tags.value = tags.value.filter((tagId: number) => !ids.includes(tagId))
       }
     }
   }

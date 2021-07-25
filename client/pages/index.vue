@@ -24,7 +24,7 @@
         class="px-4 py-2 flex flex-row flex-wrap justify-center item-center w-full"
       >
         <a
-          v-for="issue in issues"
+          v-for="issue in issueData"
           :key="issue.id"
           :href="issue.url"
           target="_blank"
@@ -53,7 +53,7 @@
         class="px-4 py-2 flex flex-row flex-wrap justify-center item-center w-full"
       >
         <a
-          v-for="pullRequest in pullRequests"
+          v-for="pullRequest in pullRequestData"
           :key="pullRequest.id"
           :href="pullRequest.url"
           target="_blank"
@@ -80,7 +80,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, SetupContext, ref } from '@vue/composition-api'
+import {
+  defineComponent,
+  SetupContext,
+  ref,
+  useAsync
+} from '@nuxtjs/composition-api'
 import dayjs from 'dayjs'
 
 import UserComposable from '~/composables/user'
@@ -95,6 +100,8 @@ export default defineComponent({
   },
   middleware: 'auth',
   setup(props: {}, ctx: SetupContext) {
+    const issueData = ref()
+    const pullRequestData = ref()
     const userModule = UserComposable(props, ctx)
     const isSelected = ref<number>(0)
     const select = (val: number) => {
@@ -103,13 +110,18 @@ export default defineComponent({
     const dateFormat = (d: string) => {
       return dayjs(d).format('YYYY/MM/DD HH:mm')
     }
-    return { ...userModule, isSelected, select, dateFormat }
-  },
-  async asyncData() {
-    const { issues, pullRequests } = await fetchRepositories()
+    useAsync(async () => {
+      const { issues, pullRequests } = await fetchRepositories()
+      issueData.value = issues
+      pullRequestData.value = pullRequests
+    })
     return {
-      issues: issues,
-      pullRequests: pullRequests
+      ...userModule,
+      isSelected,
+      select,
+      dateFormat,
+      issueData,
+      pullRequestData
     }
   }
 })

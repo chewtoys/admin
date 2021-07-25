@@ -29,7 +29,7 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { defineComponent, SetupContext, ref } from '@nuxtjs/composition-api'
 
 const modalStyle = (
   topPosition: string,
@@ -82,7 +82,7 @@ const modalStyle = (
   return baseStyle
 }
 
-export default Vue.extend({
+export default defineComponent({
   props: {
     title: {
       type: String,
@@ -93,28 +93,31 @@ export default Vue.extend({
       default: false
     }
   },
-  data() {
-    return {
-      showModal: false as boolean,
-      modalWrapperStyle: {} as object
+  setup(props: {}, ctx: SetupContext) {
+    const modalWrapperStyle = ref({})
+    const showModal = ref(false)
+
+    const modalClose = () => {
+      modalWrapperStyle.value = {}
+      showModal.value = false
     }
-  },
-  methods: {
-    modalClose() {
-      this.showModal = false
-      this.modalWrapperStyle = {}
-    },
-    cancel() {
-      this.modalClose()
-      this.$emit('cancel')
-    },
-    confirm() {
-      this.modalClose()
-      this.$emit('confirm')
-    },
-    displayModal() {
-      this.modalWrapperStyle = modalStyle('', '', '', '', '60vw', '')
-      this.showModal = true
+
+    return {
+      showModal,
+      modalWrapperStyle,
+      modalClose,
+      displayModal() {
+        modalWrapperStyle.value = modalStyle('', '', '', '', '60vw', '')
+        showModal.value = true
+      },
+      cancel() {
+        modalClose()
+        ctx.emit('cancel')
+      },
+      confirm() {
+        modalClose()
+        ctx.emit('confirm')
+      }
     }
   }
 })
