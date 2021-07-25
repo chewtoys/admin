@@ -12,7 +12,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, SetupContext, ref, useAsync } from '@nuxtjs/composition-api'
+import {
+  defineComponent,
+  SetupContext,
+  ref,
+  useAsync
+} from '@nuxtjs/composition-api'
 
 import UserComposable from '~/composables/user'
 import PhotoComposable from '~/composables/photo'
