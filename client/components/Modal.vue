@@ -7,19 +7,19 @@
           <div :style="modalWrapperStyle">
             <div class="modal-container">
               <slot />
-              <div class="footer-area">
-                <j-button
-                  text="キャンセル"
-                  style="margin: 0 2px"
-                  @handleClick="cancel"
-                />
-                <j-button
-                  v-if="isConfirmed"
-                  text="確定"
-                  style="margin: 0 2px"
-                  @handleClick="confirm"
-                />
-              </div>
+            </div>
+            <div class="footer-area">
+              <j-button
+                text="キャンセル"
+                style="margin: 0 12px"
+                @handleClick="cancel"
+              />
+              <j-button
+                v-if="isConfirmed"
+                text="確定"
+                style="margin: 0 12px"
+                @handleClick="confirm"
+              />
             </div>
           </div>
         </div>
@@ -51,7 +51,7 @@ const modalStyle = (
     left: isIPad ? '50%' : '',
     height: height,
     backgroundColor: '#fff',
-    borderRadius: '6px',
+    borderRadius: '4px',
     'box-shadow': '0px 5px 5px 0px rgba(0, 0, 0, 0.3)'
   }
 
@@ -124,33 +124,5 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-.modal-mask {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0, 0, 0, 0.5);
-  position: fixed;
-  z-index: 100;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-}
-
-.modal-container {
-  z-index: 101;
-  background-color: #fff;
-  color: #000;
-  height: auto;
-  min-height: 64px;
-  padding-bottom: 64px;
-  display: flex;
-
-  .footer-area {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    margin: 2px;
-  }
-}
+@import '@/assets/modal';
 </style>
