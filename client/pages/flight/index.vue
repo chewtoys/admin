@@ -6,8 +6,9 @@
       @confirm="postFlight"
       @cancel="cancel"
     >
-      <div :style="{ padding: '8px' }">
-        <div :style="{ padding: '8px 0' }">
+      <div class="question-item">
+        <div class="question-item_title">{{ `搭乗日` }}</div>
+        <div class="question-item_description">
           <v-single-picker
             ref="single-picker"
             :show-dropdown="showDropdown"
@@ -23,35 +24,50 @@
             </div>
           </v-single-picker>
         </div>
-        <div :style="{ padding: '8px 0' }">
+      </div>
+      <div class="question-item">
+        <div class="question-item_title">{{ `出発` }}</div>
+        <div class="question-item_description">
           <j-select
             :options="airportOptions"
             :values="departure"
             @handleSelect="applyDeparture"
           />
         </div>
-        <div :style="{ padding: '8px 0' }">
+      </div>
+      <div class="question-item">
+        <div class="question-item_title">{{ `到着` }}</div>
+        <div class="question-item_description">
           <j-select
             :options="airportOptions"
             :values="arrival"
             @handleSelect="applyArrival"
           />
         </div>
-        <div :style="{ padding: '8px 0' }">
+      </div>
+      <div class="question-item">
+        <div class="question-item_title">{{ `航空会社` }}</div>
+        <div class="question-item_description">
           <j-select
             :options="airlineOptions"
             :values="airline"
             @handleSelect="applyAirline"
           />
         </div>
-        <div :style="{ padding: '8px 0' }">
+      </div>
+      <div class="question-item">
+        <div class="question-item_title">{{ `機種` }}</div>
+        <div class="question-item_description">
           <j-select
             :options="boardingTypeOptions"
             :values="boardingType"
             @handleSelect="applyBoardingType"
           />
         </div>
-        <div :style="{ padding: '8px 0' }">
+      </div>
+      <div class="question-item">
+        <div class="question-item_title">{{ `レジ` }}</div>
+        <div class="question-item_description">
           <j-input
             :text="registration"
             placeholder="レジ"
@@ -174,3 +190,7 @@ export default defineComponent({
   }
 })
 </script>
+
+<style lang="scss" scoped>
+@import '@/assets/flight';
+</style>
