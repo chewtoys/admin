@@ -104,11 +104,35 @@ export default {
   ],
 
   modules: [
-    // '@nuxtjs/pwa',
+    '@nuxtjs/pwa',
     '@nuxtjs/axios',
     '@nuxtjs/dotenv',
     '@nuxtjs/apollo',
-    '@nuxtjs/device'
+    '@nuxtjs/device',
+    [
+      'nuxt-i18n',
+      {
+        locales: [
+          {
+            code: 'ja',
+            iso: 'ja_JP',
+            file: 'ja.json'
+          },
+          {
+            code: 'en',
+            iso: 'en-US',
+            file: 'en.json'
+          }
+        ],
+        defaultLocale: 'ja',
+        vueI18n: {
+          fallbackLocale: 'ja'
+        },
+        langDir: 'i18n/',
+        lazy: true,
+        vueI18nLoader: true
+      }
+    ]
   ],
 
   apollo: {
@@ -124,7 +148,8 @@ export default {
     '~/plugins/firebase.ts',
     '~/plugins/j-stylebook.ts',
     '~/plugins/picker.ts',
-    '~/plugins/vue-chart.ts'
+    '~/plugins/vue-chart.ts',
+    { src: '~/plugins/mock', mode: 'client' }
     // {
     //   src: '~/plugins/vue-cookie.ts',
     //   mode: 'client'

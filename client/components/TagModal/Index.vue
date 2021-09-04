@@ -112,8 +112,8 @@ import {
 } from '@nuxtjs/composition-api'
 
 import { AccordionItemClass } from '~/types/utils'
-import { CATEGORIES } from '~/utils/tag'
-import { modalStyle, CategoryItems } from '~/utils/tag'
+import { CATEGORIES, CategoryItems } from '~/utils/tag'
+import { modalStyle } from '~/utils/modal'
 
 const Accordion = () => import('~/components/TagModal/Accordion.vue')
 

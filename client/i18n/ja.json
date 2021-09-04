@@ -1,0 +1,56 @@
+{
+  "table_order": {
+    "menu_book": {
+      "title": "メニューブック",
+      "submit": "メニューブックを新規登録",
+      "update": "メニュー更新",
+      "error": {
+        "empty_message": {
+          "title": "メニューブックは登録されていません"
+        }
+      },
+      "content": {
+        "name": "メニューブック名",
+        "exchange_time": "切替時刻",
+        "timezone": "適用する営業時間帯",
+        "theme_color": "テーマカラー",
+        "menu_layout": "メニューレイアウト",
+        "price": {
+          "unit": "¥"
+        }
+      },
+      "applied_menu": {
+        "category": "カテゴリー",
+        "menu_id": "メニューID",
+        "menu_name": "メニュー名",
+        "display": "表示"
+      },
+      "search": {
+        "input": "入力してください"
+      },
+      "category": {
+        "all": "全て",
+        "category": "カテゴリー",
+        "add_label": "全てのカテゴリーが追加されています。",
+        "add": "カテゴリーを追加",
+        "remove": {
+          "title": "削除",
+          "description": "子カテゴリーも同時に削除されます。よろしいでしょうか？"
+        },
+        "cancel": "キャンセル"
+      },
+      "preview": {
+        "title": "プレビュー",
+        "description": "プレビューを表示"
+      },
+      "action": {
+        "register": "登録",
+        "edit": "編集",
+        "update": "更新",
+        "delete": "削除",
+        "add": "追加",
+        "remove": "除外"
+      }
+    }
+  }
+}
