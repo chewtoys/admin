@@ -1,0 +1,56 @@
+{
+  "table_order": {
+    "menu_book": {
+      "title": "Table Order",
+      "submit": "Register New Menu Book",
+      "update": "Update Menu",
+      "error": {
+        "empty_message": {
+          "title": "No Registered Menu Book"
+        }
+      },
+      "content": {
+        "name": "Menu Book Name",
+        "exchange_time": "Exchange Time",
+        "timezone": "Timezone",
+        "theme_color": "Theme Color",
+        "menu_layout": "Menu Layout",
+        "price": {
+          "unit": "$"
+        }
+      },
+      "applied_menu": {
+        "category": "Category",
+        "menu_id": "Menu ID",
+        "menu_name": "Menu Name",
+        "display": "Show"
+      },
+      "search": {
+        "input": "Please input text"
+      },
+      "category": {
+        "all": "All",
+        "category": "Category",
+        "add_label": "All categories are selected.",
+        "add": "Add Category",
+        "remove": {
+          "title": "Remove",
+          "description": "The child category will be deleted. Are you OK?"
+        },
+        "cancel": "Cancel"
+      },
+      "preview": {
+        "title": "Preview",
+        "description": "Show Preview"
+      },
+      "action": {
+        "register": "Register",
+        "edit": "Edit",
+        "update": "Update",
+        "delete": "Delete",
+        "add": "Add",
+        "remove": "Remove"
+      }
+    }
+  }
+}
