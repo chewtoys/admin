@@ -26,6 +26,6 @@ export default (props, ctx: SetupContext) => {
     titleText,
     descriptionText,
     applyPage,
-    cancel
+    cancel,
   }
 }

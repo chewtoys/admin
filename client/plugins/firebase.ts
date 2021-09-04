@@ -6,7 +6,7 @@ if (!firebase.apps.length) {
     apiKey: process.env.NUXT_APP_API_KEY,
     authDomain: process.env.NUXT_APP_AUTH_DOMAIN,
     projectId: process.env.NUXT_APP_PROJECT_ID,
-    storageBucket: process.env.NUXT_APP_BUCKET
+    storageBucket: process.env.NUXT_APP_BUCKET,
   }
   firebase.initializeApp(config)
 }

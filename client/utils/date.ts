@@ -16,9 +16,7 @@ export function getTimeFormat(time) {
  */
 export function getDiffTime(time) {
   if (dayjs().diff(time, 'day') !== 0) return dayjs().diff(time, 'day') + 'day'
-  if (dayjs().diff(time, 'hour') !== 0)
-    return dayjs().diff(time, 'hour') + 'hour'
-  if (dayjs().diff(time, 'minute') !== 0)
-    return dayjs().diff(time, 'minute') + 'min'
+  if (dayjs().diff(time, 'hour') !== 0) return dayjs().diff(time, 'hour') + 'hour'
+  if (dayjs().diff(time, 'minute') !== 0) return dayjs().diff(time, 'minute') + 'min'
   return dayjs().diff(time, 'second') + 'sec'
 }

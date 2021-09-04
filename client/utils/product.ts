@@ -21,8 +21,7 @@ export const products: Array<{
     url: 'https://webneko.dev/',
     promotion: '「登壇駆動開発」を進めながら知見を発信していきます！',
     rate: 3.7,
-    description:
-      '2018年10月より、Vue.jsやNuxtを使ったウェブログとして設計・開発・運用しています。'
+    description: '2018年10月より、Vue.jsやNuxtを使ったウェブログとして設計・開発・運用しています。',
   },
   {
     id: 2,
@@ -35,6 +34,6 @@ export const products: Array<{
     promotion: '職務経歴書は今後不要、いつでもどこからでも確認できます！',
     rate: 4.4,
     description:
-      '2020年01月より、Gatsby.jsを使ったプロフィールサイトとして設計・開発・運用しています。'
-  }
+      '2020年01月より、Gatsby.jsを使ったプロフィールサイトとして設計・開発・運用しています。',
+  },
 ]

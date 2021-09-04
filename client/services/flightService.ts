@@ -10,7 +10,7 @@ const collection = connectCollection('flights')
 
 export const fetchFlights = async () => {
   let result: ItemDataList = {
-    item: []
+    item: [],
   }
 
   await collection
@@ -23,7 +23,7 @@ export const fetchFlights = async () => {
         result.item.push({
           id: doc.id,
           data: doc.data(),
-          page: Math.ceil(i / PAGE_SIZE)
+          page: Math.ceil(i / PAGE_SIZE),
         })
         i++
       })
@@ -38,7 +38,7 @@ export const addFlight = async ({
   arrival,
   airline,
   boardingType,
-  registration
+  registration,
 }: Flight) => {
   if (isValidText(time)) {
     return
@@ -50,7 +50,7 @@ export const addFlight = async ({
     arrival: arrival,
     airline: airline,
     boardingType: boardingType,
-    registration: registration
+    registration: registration,
   })
 }
 
@@ -187,7 +187,7 @@ export const drawBoardingTypeChart = (item) => {
     'Boeing767',
     'Boeing777',
     'Boeing787',
-    'A320/A321'
+    'A320/A321',
   ])
   const list = years.map((y) => {
     // const list = filtered.filter((r) => r === String(y))
@@ -216,11 +216,7 @@ export const drawBoardingTypeChart = (item) => {
         if (d.data.boardingType === 2 || d.data.boardingType === 3) {
           b7Num += 1
         }
-        if (
-          d.data.boardingType === 0 ||
-          d.data.boardingType === 1 ||
-          d.data.boardingType === 13
-        ) {
+        if (d.data.boardingType === 0 || d.data.boardingType === 1 || d.data.boardingType === 13) {
           b8Num += 1
         }
         if (d.data.boardingType === 15 || d.data.boardingType === 16) {
@@ -231,15 +227,7 @@ export const drawBoardingTypeChart = (item) => {
     return [String(y), b3Num, b4Num, b6Num, b7Num, b8Num, a320Num]
   })
   list.forEach((item) => {
-    chartData.push([
-      item[0],
-      item[1],
-      item[2],
-      item[3],
-      item[4],
-      item[5],
-      item[6]
-    ])
+    chartData.push([item[0], item[1], item[2], item[3], item[4], item[5], item[6]])
   })
 
   return chartData

@@ -8,7 +8,7 @@ type RootState = {
 }
 
 export const state = (): State => ({
-  userStatus: false
+  userStatus: false,
 })
 
 interface State {
@@ -18,7 +18,7 @@ interface State {
 export const mutations: MutationTree<State> = {
   setUserStatus(state, payload) {
     state.userStatus = payload
-  }
+  },
 }
 
 export const actions: RootActionTree<State, RootState> = {
@@ -31,11 +31,10 @@ export const actions: RootActionTree<State, RootState> = {
     if (await signOut()) {
       commit('setUserStatus', false)
     }
-  }
+  },
 }
 
-export interface RootActionTree<State, RootState>
-  extends ActionTree<State, RootState> {
+export interface RootActionTree<State, RootState> extends ActionTree<State, RootState> {
   signIn({ commit }, params): Promise<void>
   signOut({ commit }): Promise<void>
 }
@@ -49,5 +48,5 @@ export const product: Module<State, RootState> = {
   state,
   mutations,
   actions,
-  getters
+  getters,
 }

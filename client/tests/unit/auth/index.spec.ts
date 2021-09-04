@@ -7,8 +7,8 @@ const getRedirectResult = jest.fn(() => {
     user: {
       displayName: 'nekohack admin test',
       email: 'admin@nekohack-test.com',
-      emailVerified: true
-    }
+      emailVerified: true,
+    },
   })
 })
 
@@ -40,11 +40,11 @@ describe('setup', () => {
             createUserWithEmailAndPassword,
             signInWithEmailAndPassword,
             currentUser: {
-              sendEmailVerification
+              sendEmailVerification,
             },
-            signInWithRedirect
+            signInWithRedirect,
           }
-        }
+        },
       }
     })
   })
@@ -57,10 +57,10 @@ describe('setup', () => {
         currentUser: {
           displayName: 'nekohack admin test',
           email: 'admin@nekohack-test.com',
-          emailVerified: true
+          emailVerified: true,
         },
         getRedirectResult,
-        sendPasswordResetEmail
+        sendPasswordResetEmail,
       }
     })
   })

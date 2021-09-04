@@ -15,6 +15,6 @@ export default ({ $axios, store }) => {
         Vue.toasted.clear()
       }
       return Promise.reject(error)
-    }
+    },
   )
 }

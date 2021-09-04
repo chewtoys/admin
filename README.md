@@ -21,4 +21,3 @@
 - [Github API v4](https://developer.github.com/v4/)
 - [Netlify Build](https://www.netlify.com/products/build/)
 - [Github Actions](https://docs.github.com/ja/actions/language-and-framework-guides/using-nodejs-with-github-actions)
-

@@ -81,7 +81,7 @@ export default (props: AccordionProps, ctx: SetupContext) => {
   const deselectItemClassAll = () => {
     ctx.emit(
       'handleDeselectItemClassAll',
-      props.items.map((item: any) => item.itemId)
+      props.items.map((item: any) => item.itemId),
     )
   }
 
@@ -97,6 +97,6 @@ export default (props: AccordionProps, ctx: SetupContext) => {
     handleClickTitleIcon,
     updateItemClassAll,
     updateItemClass,
-    deselectItemClassAll
+    deselectItemClassAll,
   }
 }

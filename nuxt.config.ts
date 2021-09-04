@@ -20,15 +20,15 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' }
+      { hid: 'description', name: 'description', content: '' },
     ],
     link: [
       {
         rel: 'icon',
         type: 'image/x-icon',
-        href: 'https://s3-ap-northeast-1.amazonaws.com/jiyuujinlab/bakeneko.png'
-      }
-    ]
+        href: 'https://s3-ap-northeast-1.amazonaws.com/jiyuujinlab/bakeneko.png',
+      },
+    ],
   },
 
   loading: { color: '#fff' },
@@ -36,8 +36,8 @@ export default {
   css: [
     {
       src: '~/assets/main.scss',
-      lang: 'css'
-    }
+      lang: 'css',
+    },
   ],
 
   build: {
@@ -45,11 +45,11 @@ export default {
       useESBuildMinify(config)
       useESBuildLoader(config, {
         loader: 'jsx',
-        target: 'es2017'
+        target: 'es2017',
       })
       useESBuildLoader(config, {
         loader: 'tsx',
-        target: 'es2017'
+        target: 'es2017',
       })
       if (isClient) {
         config.devtool = '#source-map'
@@ -62,34 +62,34 @@ export default {
           {
             buildTarget: isServer ? 'server' : 'client',
             corejs: {
-              version: 3
-            }
-          }
-        ]
+              version: 3,
+            },
+          },
+        ],
       ]
     },
     loaders: {
       scss: {
         implementation: sass,
         sassOptions: {
-          fiber: fiber
-        }
-      }
+          fiber: fiber,
+        },
+      },
     },
     postcss: {
       plugins: [
         require('tailwindcss'),
         require('autoprefixer')({
           cascade: false,
-          grid: true
+          grid: true,
         }),
         require('cssnano')({
           preset: 'default',
           discardComments: { removeAll: true },
-          zindex: false
-        })
-      ]
-    }
+          zindex: false,
+        }),
+      ],
+    },
   },
 
   buildModules: [
@@ -97,10 +97,10 @@ export default {
       '@nuxt/typescript-build',
       {
         typeCheck: true,
-        ignoreNotFoundWarnings: true
-      }
+        ignoreNotFoundWarnings: true,
+      },
     ],
-    '@nuxtjs/composition-api/module'
+    '@nuxtjs/composition-api/module',
   ],
 
   modules: [
@@ -116,31 +116,31 @@ export default {
           {
             code: 'ja',
             iso: 'ja_JP',
-            file: 'ja.json'
+            file: 'ja.json',
           },
           {
             code: 'en',
             iso: 'en-US',
-            file: 'en.json'
-          }
+            file: 'en.json',
+          },
         ],
         defaultLocale: 'ja',
         vueI18n: {
-          fallbackLocale: 'ja'
+          fallbackLocale: 'ja',
         },
         langDir: 'i18n/',
         lazy: true,
-        vueI18nLoader: true
-      }
-    ]
+        vueI18nLoader: true,
+      },
+    ],
   ],
 
   apollo: {
     clientConfigs: {
       default: {
-        httpEndpoint: GITHUB_API_V4
-      }
-    }
+        httpEndpoint: GITHUB_API_V4,
+      },
+    },
   },
 
   plugins: [
@@ -149,7 +149,7 @@ export default {
     '~/plugins/j-stylebook.ts',
     '~/plugins/picker.ts',
     '~/plugins/vue-chart.ts',
-    { src: '~/plugins/mock', mode: 'client' }
+    { src: '~/plugins/mock', mode: 'client' },
     // {
     //   src: '~/plugins/vue-cookie.ts',
     //   mode: 'client'
@@ -162,6 +162,6 @@ export default {
     NUXT_APP_AUTH_DOMAIN: process.env.NUXT_APP_AUTH_DOMAIN,
     NUXT_APP_PROJECT_ID: process.env.NUXT_APP_PROJECT_ID,
     NUXT_APP_GITHUB_TOKEN: process.env.NUXT_APP_GITHUB_TOKEN,
-    NUXT_APP_MEETUP_API: process.env.NUXT_APP_MEETUP_API
-  }
+    NUXT_APP_MEETUP_API: process.env.NUXT_APP_MEETUP_API,
+  },
 }

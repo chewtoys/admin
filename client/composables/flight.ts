@@ -9,7 +9,7 @@ import {
   BOARDING_TYPE_LIST,
   getAirlineName,
   getAirportName,
-  getBoardingTypeName
+  getBoardingTypeName,
 } from '~/utils/flight'
 import { getTimeFormat } from '~/utils/date'
 
@@ -41,9 +41,7 @@ export default (props: {}, ctx: SetupContext) => {
   }
 
   const descriptionText = (item: any) => {
-    return `${item.data.registration} (${getBoardingTypeName(
-      item.data.boardingType
-    )})`
+    return `${item.data.registration} (${getBoardingTypeName(item.data.boardingType)})`
   }
 
   const timeFormat = (t) => {
@@ -99,7 +97,7 @@ export default (props: {}, ctx: SetupContext) => {
       arrival: arrival.value,
       airline: airline.value,
       boardingType: boardingType.value,
-      registration: registration.value
+      registration: registration.value,
     })
     reset()
   }
@@ -133,6 +131,6 @@ export default (props: {}, ctx: SetupContext) => {
     checkOpen,
     reset,
     cancel,
-    postFlight
+    postFlight,
   }
 }

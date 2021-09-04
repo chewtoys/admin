@@ -12,14 +12,14 @@ describe('Single records versus queries', () => {
       {
         id: 'user-01',
         name: 'jiyuujin',
-        occupation: 'technician'
+        occupation: 'technician',
       },
       {
         id: 'user-02',
         name: 'caorol',
-        occupation: 'clown'
-      }
-    ]
+        occupation: 'clown',
+      },
+    ],
   })
 
   it('confirm a single record', async () => {
@@ -64,10 +64,7 @@ describe('Single records versus queries', () => {
   })
 
   it('confirm multiple records', async () => {
-    const records = await db
-      .collection('characters')
-      .where('name', '==', 'jiyuujin')
-      .get()
+    const records = await db.collection('characters').where('name', '==', 'jiyuujin').get()
 
     expect(records.empty).toBe(false)
     expect(records).toHaveProperty('docs', expect.any(Array))
@@ -76,10 +73,7 @@ describe('Single records versus queries', () => {
   })
 
   it('confirm an empty collection', async () => {
-    const records = await db
-      .collection('animals')
-      .where('type', '==', 'mammal')
-      .get()
+    const records = await db.collection('animals').where('type', '==', 'mammal').get()
 
     expect(records.empty).toBe(true)
   })

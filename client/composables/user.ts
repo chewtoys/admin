@@ -11,7 +11,7 @@ export default (props: {}, ctx: SetupContext) => {
   const login = async () => {
     await ctx.root.$store.dispatch('product/signIn', {
       email: email.value,
-      password: password.value
+      password: password.value,
     })
 
     if (ctx.root.$store.state.product.userStatus) {
@@ -41,6 +41,6 @@ export default (props: {}, ctx: SetupContext) => {
     login,
     logout,
     applyEmail,
-    applyPassword
+    applyPassword,
   }
 }

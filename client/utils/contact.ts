@@ -6,18 +6,18 @@ import { List } from '~/types/utils'
 export const CONTACT_CATEGORIES: List[] = [
   {
     value: 1,
-    text: '仕事のご依頼'
+    text: '仕事のご依頼',
   },
   {
     value: 2,
-    text: '当ブログへのご提案'
+    text: '当ブログへのご提案',
   },
   {
     value: 10,
-    text: 'ブログ記事全般'
+    text: 'ブログ記事全般',
   },
   {
     value: 99,
-    text: 'その他'
-  }
+    text: 'その他',
+  },
 ]

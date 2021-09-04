@@ -7,7 +7,7 @@ type RootState = {
 }
 
 export const state = (): State => ({
-  isCookieAccepted: false
+  isCookieAccepted: false,
 })
 
 interface State {
@@ -17,17 +17,16 @@ interface State {
 export const mutations: MutationTree<State> = {
   acceptCookie(state) {
     state.isCookieAccepted = true
-  }
+  },
 }
 
 export const actions: RootActionTree<State, RootState> = {
   async accept({ commit }) {
     commit('acceptCookie')
-  }
+  },
 }
 
-export interface RootActionTree<State, RootState>
-  extends ActionTree<State, RootState> {
+export interface RootActionTree<State, RootState> extends ActionTree<State, RootState> {
   accept({ commit }): Promise<void>
 }
 
@@ -40,5 +39,5 @@ export const cookie: Module<State, RootState> = {
   state,
   mutations,
   actions,
-  getters
+  getters,
 }

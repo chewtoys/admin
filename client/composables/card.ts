@@ -11,7 +11,7 @@ export default (props: CardProps, ctx: SetupContext) => {
     currentSegment: 0,
     currentPage: 1,
     prevPageEnabled: false,
-    nextPageEnabled: true
+    nextPageEnabled: true,
   })
 
   const menuCategories = computed(() => Object.keys(props.menus))
@@ -82,15 +82,13 @@ export default (props: CardProps, ctx: SetupContext) => {
     if (segments.value === null) {
       // セグメントが存在しない場合
       return Math.ceil(
-        props.menus[category].filter((menu: any) => menu.selected === true)
-          .length / perPage.value
+        props.menus[category].filter((menu: any) => menu.selected === true).length / perPage.value,
       )
     }
     const segment = segments.value[state.currentSegment]
     return Math.ceil(
-      props.menus[category][segment].filter(
-        (menu: any) => menu.selected === true
-      ).length / perPage.value
+      props.menus[category][segment].filter((menu: any) => menu.selected === true).length /
+        perPage.value,
     )
   })
 
@@ -129,7 +127,7 @@ export default (props: CardProps, ctx: SetupContext) => {
         state.prevPageEnabled = true
         state.nextPageEnabled = true
       }
-    }
+    },
   )
 
   return {
@@ -144,6 +142,6 @@ export default (props: CardProps, ctx: SetupContext) => {
     getMenuLink,
     getPageStyle,
     prevPage,
-    nextPage
+    nextPage,
   }
 }

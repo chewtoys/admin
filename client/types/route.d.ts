@@ -1,7 +1,7 @@
 export enum RouteNames {
   INDEX = 'index',
   LIST = 'list',
-  DETAIL = 'detail'
+  DETAIL = 'detail',
 }
 
 type StrRecord = Record<string, any>

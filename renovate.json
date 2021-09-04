@@ -1,7 +1,5 @@
 {
-  "extends": [
-    "github>jiyuujin/renovate-config"
-  ],
+  "extends": ["github>jiyuujin/renovate-config"],
   "automerge": true,
   "major": {
     "automerge": false
@@ -14,28 +12,16 @@
   },
   "packageRules": [
     {
-      "paths": [
-        "/**"
-      ],
-      "labels": [
-        "Package:Client"
-      ]
+      "paths": ["/**"],
+      "labels": ["Package:Client"]
     },
     {
-      "paths": [
-        "functions/**"
-      ],
-      "labels": [
-        "Package:Functions"
-      ]
+      "paths": ["functions/**"],
+      "labels": ["Package:Functions"]
     },
     {
-      "paths": [
-        "server/**"
-      ],
-      "labels": [
-        "Package:Server"
-      ]
+      "paths": ["server/**"],
+      "labels": ["Package:Server"]
     }
   ]
 }

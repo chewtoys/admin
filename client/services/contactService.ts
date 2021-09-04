@@ -9,7 +9,7 @@ const years: number[] = [2018, 2019, 2020, 2021]
 
 export const fetchContacts = async (): Promise<ItemDataList> => {
   let result: ItemDataList = {
-    item: []
+    item: [],
   }
 
   await collection
@@ -22,7 +22,7 @@ export const fetchContacts = async (): Promise<ItemDataList> => {
         result.item.push({
           id: doc.id,
           data: doc.data(),
-          page: Math.ceil(i / PAGE_SIZE)
+          page: Math.ceil(i / PAGE_SIZE),
         })
         i++
       })

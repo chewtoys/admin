@@ -7,16 +7,15 @@ import * as rp from 'request-promise'
  * @param message
  */
 export const sendToSlack = (message): boolean => {
-  const timeText: string =
-    '(' + dayjs().add(9, 'hour').format('MM/DD hh:mm') + ')'
+  const timeText: string = '(' + dayjs().add(9, 'hour').format('MM/DD hh:mm') + ')'
 
   // request-promiseを使うために前提としてrequestをインストールする必要がある
   rp.post({
     uri: functions.config().slack.webhook_url,
     body: {
-      text: `${message} ${timeText}`
+      text: `${message} ${timeText}`,
     },
-    json: true
+    json: true,
   })
     .then(() => {
       //

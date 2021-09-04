@@ -10,18 +10,18 @@ const authMiddleware = new ApolloLink((operation, forward) => {
   operation.setContext({
     headers: {
       Authorization: `bearer ${process.env.NUXT_APP_GITHUB_TOKEN}`,
-      Accept: 'application/vnd.github.v4.idl'
-    }
+      Accept: 'application/vnd.github.v4.idl',
+    },
   })
   return forward(operation)
 })
 
 const httpLink = new HttpLink({
   uri: GITHUB_API_V4,
-  fetch
+  fetch,
 })
 
 export const client = new ApolloClient({
   link: concat(authMiddleware, httpLink),
-  cache: new InMemoryCache()
+  cache: new InMemoryCache(),
 })

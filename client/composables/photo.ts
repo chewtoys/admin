@@ -15,7 +15,7 @@ export default (props: {}, ctx: SetupContext) => {
   const postPhoto = async () => {
     await addPhoto({
       name: name.value,
-      content: content.value
+      content: content.value,
     })
     reset()
   }
@@ -46,6 +46,6 @@ export default (props: {}, ctx: SetupContext) => {
     reset,
     postPhoto,
     onFileChange,
-    upload
+    upload,
   }
 }

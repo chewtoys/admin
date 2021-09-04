@@ -13,11 +13,11 @@ type RootState = {
 const store: StoreOptions<RootState> = {
   modules: {
     cookie: cookie,
-    product: product
+    product: product,
   },
   state: {
-    version: '1.0.0'
-  }
+    version: '1.0.0',
+  },
 }
 
 export const createStore = () => {

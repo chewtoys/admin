@@ -9,7 +9,7 @@ const collection = connectCollection('photos')
 
 export const fetchPhotos = async () => {
   let result: ItemDataList = {
-    item: []
+    item: [],
   }
 
   await collection.get().then((snapshot) => {
@@ -19,7 +19,7 @@ export const fetchPhotos = async () => {
       result.item.push({
         id: doc.id,
         data: doc.data(),
-        page: Math.ceil(i / PAGE_SIZE)
+        page: Math.ceil(i / PAGE_SIZE),
       })
       i++
     })
@@ -36,7 +36,7 @@ export const addPhoto = async ({ name, content }: Photo) => {
   collection.add({
     name: name,
     content: content,
-    time: dayjs().format('YYYY-MM-DD HH:mm')
+    time: dayjs().format('YYYY-MM-DD HH:mm'),
   })
 }
 

@@ -4,7 +4,7 @@ export const modalStyle = (
   leftPosition,
   rightPosition,
   width,
-  height
+  height,
 ) => {
   const ua = navigator.userAgent.toLowerCase()
 
@@ -34,30 +34,30 @@ export const modalStyle = (
     height: height,
     backgroundColor: '#fff',
     borderRadius: '6px',
-    'box-shadow': '0px 5px 5px 0px rgba(0, 0, 0, 0.3)'
+    'box-shadow': '0px 5px 5px 0px rgba(0, 0, 0, 0.3)',
   }
 
   if (topPosition !== '') {
     baseStyle = Object.assign(baseStyle, {
-      top: topPosition
+      top: topPosition,
     })
   }
 
   if (bottomPosition !== '') {
     baseStyle = Object.assign(baseStyle, {
-      bottom: bottomPosition
+      bottom: bottomPosition,
     })
   }
 
   if (leftPosition !== '') {
     baseStyle = Object.assign(baseStyle, {
-      left: leftPosition
+      left: leftPosition,
     })
   }
 
   if (rightPosition !== '') {
     baseStyle = Object.assign(baseStyle, {
-      right: rightPosition
+      right: rightPosition,
     })
   }
 

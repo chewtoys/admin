@@ -61,7 +61,7 @@ export const fetchRepositories = async () => {
             }
           }
         }
-      `
+      `,
     })
     .then((res) => {
       res.data.viewer.repositories.edges.map((e: any) => {
@@ -71,7 +71,7 @@ export const fetchRepositories = async () => {
             title: n.title,
             url: n.url,
             createdAt: n.createdAt,
-            updatedAt: n.updatedAt
+            updatedAt: n.updatedAt,
           })
         })
       })
@@ -82,7 +82,7 @@ export const fetchRepositories = async () => {
             title: n.title,
             url: n.url,
             createdAt: n.createdAt,
-            updatedAt: n.updatedAt
+            updatedAt: n.updatedAt,
           })
         })
       })
@@ -98,6 +98,6 @@ export const fetchRepositories = async () => {
       if (a.updatedAt < b.updatedAt) return 1
       if (a.updatedAt > b.updatedAt) return -1
       return 0
-    })
+    }),
   }
 }
