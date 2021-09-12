@@ -5,17 +5,17 @@
         <li v-for="(menuCategory, index) in menuCategories" :key="index">
           <div
             :class="
-              state.currentCategory === index
+              currentMenuCategory === index
                 ? 'header__list__item--current'
                 : ''
             "
             :style="
-              state.currentCategory === index
+              currentMenuCategory === index
                 ? `background-color: ${getTheme};`
                 : ''
             "
             class="header__list__item"
-            @click="state.currentCategory = index"
+            @click="currentMenuCategory = index"
           >
             {{ menuCategory }}
           </div>
@@ -34,9 +34,9 @@
 
     <template v-for="(menuCategory, index) in menuCategories">
       <div
-        v-if="state.currentCategory === index"
+        v-if="currentMenuCategory === index"
         :key="menuCategory"
-        :class="state.currentCategory === index ? 'field--current' : ''"
+        :class="currentMenuCategory === index ? 'field--current' : ''"
         class="field"
       >
         <template v-if="segments">
@@ -46,17 +46,17 @@
                 v-for="(segment, key) in segments"
                 :key="segment"
                 :class="
-                  state.currentSegment === key
+                  currentSegment === key
                     ? 'segment-list__item--current'
                     : ''
                 "
                 :style="
-                  state.currentSegment === key
+                  currentSegment === key
                     ? `background-color: ${getTheme};`
                     : ''
                 "
                 class="segment-list__item"
-                @click="state.currentSegment = key"
+                @click="currentSegment = key"
               >
                 {{ segment }}
               </div>
@@ -65,7 +65,7 @@
 
           <div class="menus">
             <template v-for="(segment, key) in segments">
-              <template v-if="state.currentSegment === key">
+              <template v-if="currentSegment === key">
                 <div :key="segment" class="menu">
                   <a
                     v-for="(item, index) in getItems"
@@ -126,7 +126,7 @@
           </div>
           <div class="paginate__display">
             <span class="paginate__display__current">
-              {{ state.currentPage }}
+              {{ currentPage }}
             </span>
             /
             <span class="paginate__display__limit">
