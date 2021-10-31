@@ -33,7 +33,7 @@
     "firebase": "8.10.0",
     "graphql": "15.7.2",
     "graphql-tag": "2.12.5",
-    "node-fetch": "2.6.5",
+    "node-fetch": "2.6.6",
     "nuxt": "2.15.8",
     "nuxt-i18n": "6.28.1",
     "ts-node": "9.1.1",
