@@ -1,8 +1,24 @@
 import { ref, computed, SetupContext, watch } from '@vue/composition-api'
 
+interface MenuItem {
+  id: number
+  name: string
+  price: number
+  image: string
+  selected: boolean
+}
+
+type MenuItems = {
+  [key: string]: Array<MenuItem>
+}
+
+type MenuCategoryItems = {
+  [key: string]: { [key: string]: Array<MenuItem> }
+}
+
 type CardProps = {
   form: object | any
-  menus: object | any
+  menus: MenuItems | MenuCategoryItems
 }
 
 export default (props: CardProps, ctx: SetupContext) => {
@@ -28,7 +44,7 @@ export default (props: CardProps, ctx: SetupContext) => {
     const category = menuCategories.value[currentMenuCategory.value]
     if (segments.value === null) {
       // セグメントが存在しない場合
-      return props.menus[category].filter((menu: any, index: number) => {
+      return Array(props.menus[category]).filter((menu: any, index: number) => {
         if (
           (currentPage.value - 1) * perPage.value <= index &&
           index < currentPage.value * perPage.value &&
@@ -81,7 +97,8 @@ export default (props: CardProps, ctx: SetupContext) => {
     if (segments.value === null) {
       // セグメントが存在しない場合
       return Math.ceil(
-        props.menus[category].filter((menu: any) => menu.selected === true).length / perPage.value,
+        Array(props.menus[category]).filter((menu: any) => menu.selected === true).length /
+          perPage.value,
       )
     }
     const segment = segments.value[currentSegment.value]

@@ -35,9 +35,9 @@ export default {
   },
   props: {
     menus: {
-      type: Array,
+      type: Object,
       default: function () {
-        return []
+        return {}
       }
     }
   },
