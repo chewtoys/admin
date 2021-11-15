@@ -1,11 +1,13 @@
 import DocumentData = firebase.firestore.DocumentData
 
+export interface ItemData {
+  id: string
+  data: DocumentData
+  page: number
+}
+
 export interface ItemDataList {
-  item: Array<{
-    id: string
-    data: DocumentData
-    page: number
-  }>
+  item: Array<ItemData>
 }
 
 export interface TipForm {

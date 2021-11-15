@@ -1,4 +1,19 @@
-export const menu = {
+interface Item {
+  id: number
+  name: string
+  price: number
+  image: string
+  selected: boolean
+}
+
+type Items = {
+  アルコール: { アルコール: Array<Item>; オリジナル: Array<Item> }
+  ピザ: Array<Item>
+  御膳: Array<Item>
+  ハッピーセット: Array<Item>
+}
+
+export const menu: Items = {
   アルコール: {
     アルコール: [
       {
