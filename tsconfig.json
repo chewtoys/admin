@@ -43,6 +43,7 @@
     "client/pages/**/*",
     "client/plugins/**/*",
     "client/store/**/*",
+    "client/types/**/*",
     "client/utils/**/*",
     "client/tests/unit/**/*"
   ],

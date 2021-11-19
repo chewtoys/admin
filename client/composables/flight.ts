@@ -9,6 +9,7 @@ import {
   BOARDING_TYPE_LIST,
   getAirlineName,
   getAirportName,
+  getAirlineImage,
   getBoardingTypeName,
 } from '~/utils/flight'
 import { getTimeFormat } from '~/utils/date'
@@ -40,8 +41,12 @@ export default (props: {}, ctx: SetupContext) => {
     return getAirlineName(value)
   }
 
-  const descriptionText = (item: any) => {
-    return `${item.data.registration} (${getBoardingTypeName(item.data.boardingType)})`
+  const airlineImage = (value: number) => {
+    return getAirlineImage(value)
+  }
+
+  const boardingTypeText = (value: number) => {
+    return getBoardingTypeName(value)
   }
 
   const timeFormat = (t) => {
@@ -120,7 +125,8 @@ export default (props: {}, ctx: SetupContext) => {
     departureText,
     arrivalText,
     airlineText,
-    descriptionText,
+    airlineImage,
+    boardingTypeText,
     timeFormat,
     applyDeparture,
     applyArrival,

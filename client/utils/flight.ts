@@ -26,23 +26,23 @@ export const AIRPORT_LIST: List[] = [
  * 航空会社
  */
 export const AIRLINE_LIST: List[] = [
-  { value: 0, text: 'JAL' },
-  { value: 1, text: 'ANA' },
-  { value: 2, text: 'Skymark' },
-  { value: 3, text: 'Starflyer' },
-  { value: 4, text: 'SolaseedAir' },
-  { value: 5, text: 'AirDo' },
-  { value: 6, text: 'Peach' },
-  { value: 7, text: 'JetstarJapan' },
-  { value: 8, text: 'ValillaAir' },
-  { value: 9, text: 'SpringJapan' },
-  { value: 10, text: 'AirasiaJapan' },
-  { value: 11, text: 'AmakusaAirline' },
-  { value: 12, text: 'Thai Airways' },
-  { value: 13, text: 'China Airlines' },
-  { value: 14, text: 'Eva Airways' },
-  { value: 15, text: 'V Air' },
-  { value: 16, text: 'Tiger Air' },
+  { value: 0, text: 'JAL', image: 'jal' },
+  { value: 1, text: 'ANA', image: 'ana' },
+  { value: 2, text: 'Skymark', image: 'skymark' },
+  { value: 3, text: 'Starflyer', image: 'starflyer' },
+  { value: 4, text: 'SolaseedAir', image: 'solaseed' },
+  { value: 5, text: 'AirDo', image: 'airdo' },
+  { value: 6, text: 'Peach', image: 'peach' },
+  { value: 7, text: 'JetstarJapan', image: 'jetstar' },
+  { value: 8, text: 'ValillaAir', image: 'vanilla' },
+  { value: 9, text: 'SpringJapan', image: 'spring' },
+  { value: 10, text: 'AirasiaJapan', image: 'airasia' },
+  { value: 11, text: 'AmakusaAirline', image: 'amx' },
+  { value: 12, text: 'Thai Airways', image: 'thaiair' },
+  { value: 13, text: 'China Airlines', image: 'ci' },
+  { value: 14, text: 'Eva Airways', image: 'eva' },
+  { value: 15, text: 'V Air', image: 'v' },
+  { value: 16, text: 'Tiger Air', image: 'tiger' },
 ]
 
 /**
@@ -95,6 +95,21 @@ export function getAirlineName(id) {
   AIRLINE_LIST.forEach((airline) => {
     if (airline.value === id) {
       text = airline.text
+    }
+  })
+  return text
+}
+
+/**
+ * 航空会社のロゴを取得する
+ * @param id
+ * @returns {string}
+ */
+export function getAirlineImage(id) {
+  let text: string | undefined = ''
+  AIRLINE_LIST.forEach((airline) => {
+    if (airline.value === id) {
+      text = airline.image
     }
   })
   return text

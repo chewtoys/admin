@@ -9,6 +9,7 @@ export interface Menu {
 export interface List {
   value: number
   text: string
+  image?: string
   backgroundColor?: string
   color?: string
 }
