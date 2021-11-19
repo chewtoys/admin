@@ -78,54 +78,74 @@
     </modal>
 
     <template v-if="flights">
-      <div :style="{ display: 'flex', flexWrap: 'wrap', width: '100%' }">
-        <google-chart
-          chart-type="ColumnChart"
-          :chart-data="chartData"
-          :chart-options="{
-            width: 450,
-            height: 300,
-            legend: { position: 'top', maxLines: 3 },
-            bar: { groupWidth: '75%' }
-          }"
-          style="width: 50%"
-        />
-        <google-chart
-          chart-type="ColumnChart"
-          :chart-data="localeChartData"
-          :chart-options="{
-            width: 450,
-            height: 300,
-            legend: { position: 'top', maxLines: 3 },
-            bar: { groupWidth: '75%' },
-            isStacked: true
-          }"
-          style="width: 50%"
-        />
-        <google-chart
-          chart-type="ColumnChart"
-          :chart-data="airlineChartData"
-          :chart-options="{
-            width: 450,
-            height: 300,
-            legend: { position: 'top', maxLines: 3 },
-            bar: { groupWidth: '75%' },
-            isStacked: true
-          }"
-          style="width: 50%"
-        />
-        <google-chart
-          chart-type="ColumnChart"
-          :chart-data="boardingTypeChartData"
-          :chart-options="{
-            width: 450,
-            height: 300,
-            legend: { position: 'top', maxLines: 3 },
-            bar: { groupWidth: '75%' },
-            isStacked: true
-          }"
-          style="width: 50%"
-        />
+      <div class="flex flex-wrap w-full">
+        <div class="p-2 w-1/2 flex item-center justify-center">
+          <div class="max-w-full bg-white flex flex-col rounded overflow-hidden shadow-lg">
+            <google-chart
+              chart-type="ColumnChart"
+              :chart-data="chartData"
+              :chart-options="{
+                width: 450,
+                height: 300,
+                legend: { position: 'top', maxLines: 3 },
+                bar: { groupWidth: '75%' }
+              }"
+              style="width: 50%"
+            />
+          </div>
+        </div>
+        <div class="p-2 w-1/2 flex item-center justify-center">
+          <div class="max-w-full bg-white flex flex-col rounded overflow-hidden shadow-lg">
+            <google-chart
+              chart-type="ColumnChart"
+              :chart-data="localeChartData"
+              :chart-options="{
+                width: 450,
+                height: 300,
+                legend: { position: 'top', maxLines: 3 },
+                bar: { groupWidth: '75%' },
+                isStacked: true
+              }"
+              style="width: 50%"
+            />
+          </div>
+        </div>
+        <div class="p-2 w-1/2 flex item-center justify-center">
+          <div class="max-w-full bg-white flex flex-col rounded overflow-hidden shadow-lg">
+            <google-chart
+              chart-type="ColumnChart"
+              :chart-data="airlineChartData"
+              :chart-options="{
+                width: 450,
+                height: 300,
+                legend: { position: 'top', maxLines: 3 },
+                bar: { groupWidth: '75%' },
+                isStacked: true
+              }"
+              style="width: 50%"
+            />
+          </div>
+        </div>
+        <div class="p-2 w-1/2 flex item-center justify-center">
+          <div class="max-w-full bg-white flex flex-col rounded overflow-hidden shadow-lg">
+            <google-chart
+              chart-type="ColumnChart"
+              :chart-data="boardingTypeChartData"
+              :chart-options="{
+                width: 450,
+                height: 300,
+                legend: { position: 'top', maxLines: 3 },
+                bar: { groupWidth: '75%' },
+                isStacked: true
+              }"
+              style="width: 50%"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div v-for="flight in flights.item" :key="flight.id" class="flex flex-col w-full">
+        <flight-card :item="flight" />
       </div>
     </template>
   </main-template>
@@ -153,12 +173,14 @@ import {
 const MainTemplate = () => import('~/components/MainTemplate.vue')
 const GoogleChart = () => import('~/components/GoogleChart.vue')
 const Modal = () => import('~/components/Modal.vue')
+const FlightCard = () => import('~/components/Card/Flight.vue')
 
 export default defineComponent({
   components: {
     MainTemplate,
     GoogleChart,
-    Modal
+    Modal,
+    FlightCard
   },
   middleware: 'auth',
   setup(props: {}, ctx: SetupContext) {
