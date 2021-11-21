@@ -11,7 +11,7 @@ import { useESBuildMinify, useESBuildLoader } from './client/modules/useESBuild'
 const GITHUB_API_V4: string = 'https://api.github.com/graphql'
 
 export default {
-  srcDir: './client',
+  srcDir: 'client/',
 
   mode: 'universal',
 
