@@ -1,0 +1,58 @@
+name: Deploy to Github pages
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Use Node.js
+        uses: actions/setup-node@master
+        with:
+          node-version: '14.x'
+
+      - name: Cache node modules
+        uses: actions/cache@v2
+        env:
+          cache-name: _cache_npm_node14
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+      - name: Transpile
+        run: |
+          npm install
+          npm run build
+        env:
+          CI: true
+          URL_PREFIX: admin
+          GITHUB_PAGES: true
+
+      # `_` から始まるディレクトリが見えず 404 となってしまう対策を追加
+      - name: Generate
+        run: |
+          npm run export
+          touch dist/.nojekyll
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v2.8.0
+        env:
+          ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          PUBLISH_BRANCH: gh-pages
+          PUBLISH_DIR: ./dist
