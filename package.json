@@ -8,7 +8,7 @@
     "dev": "nuxt-ts",
     "build": "nuxt-ts build",
     "start": "nuxt-ts start",
-    "generate": "nuxt-ts generate",
+    "export": "nuxt-ts export",
     "format": "prettier --write \"**/*.{js,jsx,json,ts,tsx,md,mdx,css,html,yml,yaml,scss,sass}\" --ignore-path .gitignore",
     "lint": "eslint --ext .ts,.vue --ignore-path .gitignore .",
     "lint:fix": "eslint --ext .ts,.vue --ignore-path .gitignore . --fix",
