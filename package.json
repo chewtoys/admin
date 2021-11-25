@@ -76,7 +76,7 @@
     "jest": "26.6.3",
     "jest-transform-stub": "2.0.0",
     "msw": "0.35.0",
-    "prettier": "2.4.1",
+    "prettier": "2.5.0",
     "sass": "1.43.5",
     "sass-loader": "10.2.0",
     "tailwindcss": "1.9.6",
