@@ -1,4 +1,6 @@
 module.exports = {
+  mode: 'jit',
+
   theme: {
     boxShadow: {
       card: '0 2px 5px rgba(204, 204, 204, 1)',
