@@ -32,19 +32,5 @@ module.exports = {
     purgeLayersByDefault: true,
   },
 
-  purge: {
-    enabled: process.env.NODE_ENV === 'production',
-    content: [
-      './client/assets/**/*.scss',
-      './client/components/**/*.vue',
-      './client/composables/**/*.vue',
-      './client/layouts/**/*.vue',
-      './client/pages/**/*.vue',
-      './client/plugins/**/*.ts',
-      './client/service/**/*.ts',
-      './client/store/**/*.ts',
-      './client/utils/**/*.ts',
-      'nuxt.config.ts',
-    ],
-  },
+  purge: ['./client/**/*.vue'],
 }
