@@ -1,5 +1,5 @@
 import { SetupContext, ref } from '@nuxtjs/composition-api'
-import firebase from 'firebase'
+import firebase from 'firebase/compat/app'
 
 import { addPhoto } from '~/services/photoService'
 
