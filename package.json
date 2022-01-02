@@ -74,7 +74,7 @@
     "cross-env": "7.0.3",
     "cssnano": "5.0.14",
     "esbuild-loader": "2.18.0",
-    "eslint": "8.5.0",
+    "eslint": "8.6.0",
     "fibers": "5.0.0",
     "firestore-jest-mock": "0.17.0",
     "jest": "27.4.5",
