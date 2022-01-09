@@ -72,7 +72,7 @@
     "cache-loader": "4.1.0",
     "concurrently": "6.5.1",
     "cross-env": "7.0.3",
-    "cssnano": "5.0.14",
+    "cssnano": "5.0.15",
     "esbuild-loader": "2.18.0",
     "eslint": "8.6.0",
     "fibers": "5.0.0",
