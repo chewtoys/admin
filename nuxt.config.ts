@@ -16,7 +16,7 @@ export default {
   mode: 'universal',
 
   router: {
-    base: process.env.NODE_ENV === 'production' ? '/admin/' : '/'
+    base: process.env.NODE_ENV === 'production' ? '/admin/' : '/',
   },
 
   head: {

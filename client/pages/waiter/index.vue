@@ -12,7 +12,7 @@ import { defineComponent, SetupContext, ref, useAsync } from '@nuxtjs/compositio
 import UserComposable from '~/composables/user'
 
 const MainTemplate = () => import('~/components/MainTemplate.vue')
-const MenuModal = () => import('~/components/MenuModal/Index.vue')
+const MenuModal = () => import('~/components/MenuModal/index.vue')
 
 export default defineComponent({
   components: {

@@ -3,7 +3,7 @@
     <j-button
       ref="categoryModalButton"
       text="カテゴリーを選択"
-      @handleClick="displayModal"
+      @handle-click="displayModal"
     />
 
     <div>
@@ -13,12 +13,12 @@
     </div>
 
     <div v-if="showModal === true">
-      <div class="modal-mask" @click.self="modalClose">
+      <button class="modal-mask" @click.self="modalClose">
         <div :style="modalWrapperStyle">
           <div class="modal-container">
             <div class="header">
               <span class="header-title"> カテゴリー選択 </span>
-              <span class="header-close-btn" @click="cancel"> × </span>
+              <button class="header-close-btn" @click="cancel"> × </button>
             </div>
 
             <div class="content">
@@ -47,9 +47,9 @@
                         :title="item.itemClassItemName"
                         :items="item.items"
                         :selected-ids="tags"
-                        @handleItemClassAll="updateItemClassAll"
-                        @handleItemClass="updateItemClass"
-                        @handleDeselectItemClassAll="deselectItemClassAll"
+                        @handle-item-class-all="updateItemClassAll"
+                        @handle-item-class="updateItemClass"
+                        @handle-deselect-item-class-all="deselectItemClassAll"
                       />
                     </div>
                   </div>
@@ -67,7 +67,7 @@
                       {{ tags.length }}
                     </span>
                   </div>
-                  <j-button text="全て削除" @handleClick="deselectTagAll" />
+                  <j-button text="全て削除" @handle-click="deselectTagAll" />
                 </div>
                 <div class="list">
                   <template v-if="tags.length === 0">
@@ -92,13 +92,13 @@
               <j-button
                 text="キャンセル"
                 style="margin-right: 0.8rem"
-                @handleClick="cancel"
+                @handle-click="cancel"
               />
-              <j-button text="確定" fill @handleClick="submit" />
+              <j-button text="確定" fill @handle-click="submit" />
             </div>
           </div>
         </div>
-      </div>
+      </button>
     </div>
   </div>
 </template>
@@ -115,7 +115,7 @@ import { AccordionItemClass } from '~/types/utils'
 import { CATEGORIES, CategoryItems } from '~/utils/tag'
 import { modalStyle } from '~/utils/modal'
 
-const Accordion = () => import('~/components/TagModal/Accordion.vue')
+const Accordion = () => import('~/components/TagModal/AccordionView.vue')
 
 export default defineComponent({
   components: {

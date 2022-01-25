@@ -7,7 +7,7 @@
         <img :src="content" :alt="name" decoding="async" />
       </div>
     </div>
-    <j-button text="Photoを追加" @handleClick="postPhoto" />
+    <j-button text="Photoを追加" @handle-click="postPhoto" />
   </main-template>
 </template>
 

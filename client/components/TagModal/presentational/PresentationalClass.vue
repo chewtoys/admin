@@ -2,7 +2,7 @@
   <div>
     <div class="item-class-accordion">
       <div :class="{ 'is-opened': isAccordionOpened }" class="item-class">
-        <a
+        <button
           class="item-class-name"
           @click.prevent="isAccordionOpened = !isAccordionOpened"
         >
@@ -11,18 +11,18 @@
           -->
           {{ title }}
           <small class="item-count">({{ itemLength }})</small>
-        </a>
-        <a class="add-tag">
-          <div
+        </button>
+        <div class="add-tag">
+          <button
             :class="getIconsColorClass"
             class="add-tag-btn"
             @click.prevent="handleClickFolderIcon"
           >
             <!--
-            <svg-element :name="getIconsStyle" />
-            -->
-          </div>
-        </a>
+              <svg-element :name="getIconsStyle" />
+              -->
+          </button>
+        </div>
       </div>
       <transition
         @before-enter="beforeEnter"

@@ -2,11 +2,11 @@
   <div class="menu-book">
     <j-button
       :text="$t('table_order.menu_book.preview.title')"
-      @handleClick="openModal"
+      @handle-click="openModal"
     />
 
     <div v-if="showModal === Boolean(true)">
-      <div class="modal-mask" @click.self="closeModal">
+      <button class="modal-mask" @click.self="closeModal">
         <div :style="modalWrapperStyle">
           <div class="modal-container">
             <menu-preview
@@ -17,7 +17,7 @@
             />
           </div>
         </div>
-      </div>
+      </button>
     </div>
   </div>
 </template>
@@ -25,7 +25,7 @@
 <script lang="ts">
 import { ref, SetupContext } from '@nuxtjs/composition-api'
 
-import MenuPreview from '~/components/MenuModal/Preview.vue'
+import MenuPreview from '~/components/MenuModal/MenuPreview.vue'
 
 import { modalStyle } from '~/utils/modal'
 

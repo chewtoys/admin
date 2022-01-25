@@ -12,5 +12,13 @@ module.exports = {
     'vue/no-v-for-template-key-on-child': 'off',
     'vue/require-explicit-emits': 'off',
     'vue/singleline-html-element-content-newline': 'off',
+    'vue/multi-word-component-names': [
+      'error',
+      {
+        ignores: ['index', 'default', 'error'],
+      },
+    ],
+    'vuejs-accessibility/click-events-have-key-events': 'off',
+    'vuejs-accessibility/form-control-has-label': 'off',
   },
 }

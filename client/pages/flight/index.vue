@@ -31,7 +31,7 @@
           <j-select
             :options="airportOptions"
             :values="departure"
-            @handleSelect="applyDeparture"
+            @handle-select="applyDeparture"
           />
         </div>
       </div>
@@ -41,7 +41,7 @@
           <j-select
             :options="airportOptions"
             :values="arrival"
-            @handleSelect="applyArrival"
+            @handle-select="applyArrival"
           />
         </div>
       </div>
@@ -51,7 +51,7 @@
           <j-select
             :options="airlineOptions"
             :values="airline"
-            @handleSelect="applyAirline"
+            @handle-select="applyAirline"
           />
         </div>
       </div>
@@ -61,7 +61,7 @@
           <j-select
             :options="boardingTypeOptions"
             :values="boardingType"
-            @handleSelect="applyBoardingType"
+            @handle-select="applyBoardingType"
           />
         </div>
       </div>
@@ -71,7 +71,7 @@
           <j-input
             :text="registration"
             placeholder="レジ"
-            @handleInput="applyRegistration"
+            @handle-input="applyRegistration"
           />
         </div>
       </div>
@@ -172,8 +172,8 @@ import {
 
 const MainTemplate = () => import('~/components/MainTemplate.vue')
 const GoogleChart = () => import('~/components/GoogleChart.vue')
-const Modal = () => import('~/components/Modal.vue')
-const FlightCard = () => import('~/components/Card/Flight.vue')
+const Modal = () => import('~/components/ModalView.vue')
+const FlightCard = () => import('~/components/Card/FlightCard.vue')
 
 export default defineComponent({
   components: {
