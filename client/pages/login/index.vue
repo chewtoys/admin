@@ -24,7 +24,7 @@
           <j-input
             placeholder="メールアドレス"
             :text="email"
-            @handleInput="applyEmail"
+            @handle-input="applyEmail"
           />
         </div>
         <div class="my-4 flex justify-center item-center">
@@ -33,11 +33,11 @@
             input-type="password"
             :text="password"
             password
-            @handleInput="applyPassword"
+            @handle-input="applyPassword"
           />
         </div>
         <div class="my-4 flex justify-center item-center">
-          <j-button text="ログイン" @handleClick="login" />
+          <j-button text="ログイン" @handle-click="login" />
         </div>
       </div>
     </div>
@@ -51,7 +51,7 @@ import UserComposable from '~/composables/user'
 import { useLayout } from '~/composables/layout'
 
 const MainTemplate = () => import('~/components/MainTemplate.vue')
-// const AppCard = () => import('~/components/Card/App.vue')
+// const AppCard = () => import('~/components/Card/AppCard.vue')
 
 import { products } from '~/utils/product'
 

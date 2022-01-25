@@ -1,5 +1,5 @@
 <template>
-  <div
+  <button
     class="item-list-item"
     :class="[getSelectedClass, getSelectedItemsClass]"
     @click.prevent="handleClick"
@@ -12,7 +12,7 @@
       <svg-element :name="getIconStyle" />
       -->
     </div>
-  </div>
+  </button>
 </template>
 
 <script lang="ts">

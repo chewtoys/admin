@@ -26,8 +26,8 @@
 <script lang="ts">
 import { defineComponent, SetupContext } from '@nuxtjs/composition-api'
 import AccordionComposable from '~/composables/accordion'
-import PresentationalClass from './presentational/Class.vue'
-import PresentationalListItem from './presentational/ListItem.vue'
+import PresentationalClass from './presentational/PresentationalClass.vue'
+import PresentationalListItem from './presentational/PresentationalListItem.vue'
 
 type AccordionProps = {
   labelText: string

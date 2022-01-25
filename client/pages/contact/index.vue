@@ -19,7 +19,7 @@
           :items="contactData !== undefined ? contactData : []"
           :page="activePage"
           :per-page="perPage"
-          @handlePage="applyPage"
+          @handle-page="applyPage"
         />
       </div>
     </modal>
@@ -40,7 +40,7 @@ import ContactComposable from '~/composables/contact'
 import { fetchContacts } from '~/services/contactService'
 
 const MainTemplate = () => import('~/components/MainTemplate.vue')
-const Modal = () => import('~/components/Modal.vue')
+const Modal = () => import('~/components/ModalView.vue')
 
 export default defineComponent({
   components: {

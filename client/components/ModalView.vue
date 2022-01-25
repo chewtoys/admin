@@ -1,9 +1,9 @@
 <template>
   <div>
-    <j-button ref="modalButton" :text="title" @handleClick="displayModal" />
+    <j-button ref="modalButton" :text="title" @handle-click="displayModal" />
     <transition mode="out-in">
       <div v-if="showModal === true">
-        <div class="modal-mask" @click.self="modalClose">
+        <button class="modal-mask" @click.self="modalClose">
           <div :style="modalWrapperStyle">
             <div class="modal-container">
               <slot />
@@ -12,17 +12,17 @@
               <j-button
                 text="キャンセル"
                 style="margin: 0 12px"
-                @handleClick="cancel"
+                @handle-click="cancel"
               />
               <j-button
                 v-if="isConfirmed"
                 text="確定"
                 style="margin: 0 12px"
-                @handleClick="confirm"
+                @handle-click="confirm"
               />
             </div>
           </div>
-        </div>
+        </button>
       </div>
     </transition>
   </div>

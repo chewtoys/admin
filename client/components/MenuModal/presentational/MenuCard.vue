@@ -3,7 +3,7 @@
     <div :style="`border-bottom: 4px solid ${getTheme};`" class="header">
       <ul class="header__list">
         <li v-for="(menuCategory, index) in menuCategories" :key="index">
-          <div
+          <button
             :class="
               currentMenuCategory === index
                 ? 'header__list__item--current'
@@ -18,7 +18,7 @@
             @click="currentMenuCategory = index"
           >
             {{ menuCategory }}
-          </div>
+          </button>
         </li>
       </ul>
 
@@ -42,7 +42,7 @@
         <template v-if="segments">
           <div class="segments">
             <div class="segment-list">
-              <div
+              <button
                 v-for="(segment, key) in segments"
                 :key="segment"
                 :class="
@@ -59,7 +59,7 @@
                 @click="currentSegment = key"
               >
                 {{ segment }}
-              </div>
+              </button>
             </div>
           </div>
 
@@ -117,13 +117,13 @@
         </template>
 
         <div class="paginate">
-          <div
+          <button
             :class="getPageStyle(1)"
             class="paginate__control paginate__control--prev prev"
             @click="prevPage"
           >
             <span />
-          </div>
+          </button>
           <div class="paginate__display">
             <span class="paginate__display__current">
               {{ currentPage }}
@@ -133,13 +133,13 @@
               {{ pages }}
             </span>
           </div>
-          <div
+          <button
             :class="getPageStyle(pages)"
             class="paginate__control paginate__control--next next"
             @click="nextPage"
           >
             <span />
-          </div>
+          </button>
         </div>
       </div>
     </template>

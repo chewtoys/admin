@@ -5,11 +5,11 @@
         <span class="header-title">
           {{ $t('table_order.menu_book.preview.description') }}
         </span>
-        <span class="header-close-btn" @click="cancel">
+        <button class="header-close-btn" @click="cancel">
           <!--
           <font-awesome-icon icon="times" class="icons" />
           -->
-        </span>
+        </button>
       </div>
 
       <menu-card :form="form" :menus="menus" />
@@ -18,7 +18,7 @@
 </template>
 
 <script lang="ts">
-import MenuCard from '~/components/MenuModal/presentational/Card.vue'
+import MenuCard from '~/components/MenuModal/presentational/MenuCard.vue'
 
 export default {
   components: {

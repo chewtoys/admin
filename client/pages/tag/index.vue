@@ -12,7 +12,7 @@ import { defineComponent, SetupContext, ref } from '@nuxtjs/composition-api'
 import UserComposable from '~/composables/user'
 
 const MainTemplate = () => import('~/components/MainTemplate.vue')
-const TagModal = () => import('~/components/TagModal/Index.vue')
+const TagModal = () => import('~/components/TagModal/index.vue')
 
 export default defineComponent({
   components: {

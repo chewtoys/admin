@@ -15,7 +15,7 @@
           </nuxt-link>
         </li>
       </ul>
-      <j-button text="ログアウト" @handleClick="logout" />
+      <j-button text="ログアウト" @handle-click="logout" />
     </div>
     <slot />
   </div>
