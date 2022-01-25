@@ -4,11 +4,11 @@
       <div class="contact">
         <div v-for="item in contactData" :key="item.id">
           <template v-if="item.page === activePage">
-            <div class="px-4 py-2">
+            <div class="py-2 px-4">
               {{ titleText(item) }}
             </div>
             <div
-              class="px-4 py-2 text-gray-600"
+              class="py-2 px-4 text-gray-600"
               v-html="descriptionText(item)"
             />
             <hr style="width: 60%; margin: 0 auto" />

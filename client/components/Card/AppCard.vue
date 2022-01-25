@@ -1,6 +1,6 @@
 <template>
-  <div class="p-4 mb-2 mx-8 rounded-2xl shadow-card">
-    <div class="flex justify-between item-center mb-8">
+  <div class="p-4 mx-8 mb-2 rounded-2xl shadow-card">
+    <div class="flex justify-between mb-8 item-center">
       <div class="flex flex-start item-center">
         <img :src="icon" :alt="title" class="w-24 h-24" />
         <div class="ml-4 text-left">
@@ -8,7 +8,7 @@
             {{ title }}
           </div>
           <span v-for="tag in tags" :key="tag" class="text-sm">
-            <span class="p-2 mx-2 bg-gray-600 text-white rounded-2xl">
+            <span class="p-2 mx-2 text-white bg-gray-600 rounded-2xl">
               {{ tag }}
             </span>
           </span>

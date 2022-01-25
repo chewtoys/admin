@@ -18,16 +18,16 @@
 
     <div class="mb-8">
       <div
-        class="p-4 h-64 flex flex-col justify-center item-center align-middle min-h-screen"
+        class="flex flex-col justify-center p-4 h-64 min-h-screen align-middle item-center"
       >
-        <div class="my-4 flex justify-center item-center">
+        <div class="flex justify-center my-4 item-center">
           <j-input
             placeholder="メールアドレス"
             :text="email"
             @handle-input="applyEmail"
           />
         </div>
-        <div class="my-4 flex justify-center item-center">
+        <div class="flex justify-center my-4 item-center">
           <j-input
             placeholder="パスワード"
             input-type="password"
@@ -36,7 +36,7 @@
             @handle-input="applyPassword"
           />
         </div>
-        <div class="my-4 flex justify-center item-center">
+        <div class="flex justify-center my-4 item-center">
           <j-button text="ログイン" @handle-click="login" />
         </div>
       </div>

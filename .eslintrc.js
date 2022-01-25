@@ -1,6 +1,6 @@
 module.exports = {
-  extends: ['@nekohack/eslint-config-vue'],
-  plugins: ['@typescript-eslint'],
+  extends: ['@nekohack/eslint-config-vue', 'plugin:tailwindcss/recommended'],
+  plugins: ['@typescript-eslint', 'tailwindcss'],
   root: true,
   env: { node: true, es6: true },
   parserOptions: {
