@@ -21,7 +21,7 @@
 
     <template v-if="isSelected === 0">
       <div
-        class="px-4 py-2 flex flex-row flex-wrap justify-center item-center w-full"
+        class="flex flex-row flex-wrap justify-center py-2 px-4 w-full item-center"
       >
         <a
           v-for="issue in issueData"
@@ -29,18 +29,18 @@
           :href="issue.url"
           target="_blank"
           rel="noopener"
-          class="w-1/2 overflow-hidden flex flex-start py-4 text-xl"
+          class="flex overflow-hidden py-4 w-1/2 flex-start text-xl"
         >
           <span
-            class="flex justify-center item-center align-middle w-16 h-16 m-2 border-solid border-1 border-card rounded-2xl text-reaction"
+            class="flex justify-center m-2 w-16 h-16 text-reaction align-middle rounded-2xl border-1 border-card border-solid item-center"
           >
             {{ issue.repositoryName.slice(0, 1).toUpperCase() }}
           </span>
           <div>
-            <div class="text-base font-bold overflow-hidden">
+            <div class="overflow-hidden font-bold text-base">
               {{ issue.title }}
             </div>
-            <div class="text-date overflow-hidden flex justify-between">
+            <div class="flex overflow-hidden justify-between text-date">
               {{ dateFormat(issue.createdAt) }}
             </div>
           </div>
@@ -50,7 +50,7 @@
 
     <template v-if="isSelected === 1">
       <div
-        class="px-4 py-2 flex flex-row flex-wrap justify-center item-center w-full"
+        class="flex flex-row flex-wrap justify-center py-2 px-4 w-full item-center"
       >
         <a
           v-for="pullRequest in pullRequestData"
@@ -58,18 +58,18 @@
           :href="pullRequest.url"
           target="_blank"
           rel="noopener"
-          class="w-1/2 overflow-hidden flex flex-start py-4 text-xl"
+          class="flex overflow-hidden py-4 w-1/2 flex-start text-xl"
         >
           <span
-            class="flex justify-center item-center align-middle w-16 h-16 m-2 border-solid border-1 border-card rounded-2xl text-reaction"
+            class="flex justify-center m-2 w-16 h-16 text-reaction align-middle rounded-2xl border-1 border-card border-solid item-center"
           >
             {{ pullRequest.repositoryName.slice(0, 1).toUpperCase() }}
           </span>
           <div>
-            <div class="text-base font-bold overflow-hidden">
+            <div class="overflow-hidden font-bold text-base">
               {{ pullRequest.title }}
             </div>
-            <div class="text-date overflow-hidden flex justify-between">
+            <div class="flex overflow-hidden justify-between text-date">
               {{ dateFormat(pullRequest.createdAt) }}
             </div>
           </div>

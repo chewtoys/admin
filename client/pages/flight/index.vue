@@ -79,8 +79,8 @@
 
     <template v-if="flights">
       <div class="flex flex-wrap w-full">
-        <div class="p-2 w-1/2 flex item-center justify-center">
-          <div class="max-w-full bg-white flex flex-col rounded overflow-hidden shadow-lg">
+        <div class="flex justify-center p-2 w-1/2 item-center">
+          <div class="flex overflow-hidden flex-col max-w-full bg-white rounded shadow-lg">
             <google-chart
               chart-type="ColumnChart"
               :chart-data="chartData"
@@ -94,8 +94,8 @@
             />
           </div>
         </div>
-        <div class="p-2 w-1/2 flex item-center justify-center">
-          <div class="max-w-full bg-white flex flex-col rounded overflow-hidden shadow-lg">
+        <div class="flex justify-center p-2 w-1/2 item-center">
+          <div class="flex overflow-hidden flex-col max-w-full bg-white rounded shadow-lg">
             <google-chart
               chart-type="ColumnChart"
               :chart-data="localeChartData"
@@ -110,8 +110,8 @@
             />
           </div>
         </div>
-        <div class="p-2 w-1/2 flex item-center justify-center">
-          <div class="max-w-full bg-white flex flex-col rounded overflow-hidden shadow-lg">
+        <div class="flex justify-center p-2 w-1/2 item-center">
+          <div class="flex overflow-hidden flex-col max-w-full bg-white rounded shadow-lg">
             <google-chart
               chart-type="ColumnChart"
               :chart-data="airlineChartData"
@@ -126,8 +126,8 @@
             />
           </div>
         </div>
-        <div class="p-2 w-1/2 flex item-center justify-center">
-          <div class="max-w-full bg-white flex flex-col rounded overflow-hidden shadow-lg">
+        <div class="flex justify-center p-2 w-1/2 item-center">
+          <div class="flex overflow-hidden flex-col max-w-full bg-white rounded shadow-lg">
             <google-chart
               chart-type="ColumnChart"
               :chart-data="boardingTypeChartData"
