@@ -75,7 +75,7 @@
     "cssnano": "5.0.16",
     "esbuild-loader": "2.18.0",
     "eslint": "8.8.0",
-    "eslint-plugin-tailwindcss": "3.3.6",
+    "eslint-plugin-tailwindcss": "3.3.7",
     "fibers": "5.0.1",
     "firestore-jest-mock": "0.17.0",
     "jest": "27.4.7",
