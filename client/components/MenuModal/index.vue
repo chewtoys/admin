@@ -2,7 +2,7 @@
   <div class="menu-book">
     <j-button
       :text="$t('table_order.menu_book.preview.title')"
-      @handle-click="openModal"
+      @handleClick="openModal"
     />
 
     <div v-if="showModal === Boolean(true)">
@@ -13,7 +13,7 @@
               :is-preview-mode="Boolean(true)"
               :form="{ name: '霧の滴', theme: 1, columns: 0 }"
               :menus="menus"
-              @handle-modal="closeModal"
+              @handleModal="closeModal"
             />
           </div>
         </div>

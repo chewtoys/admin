@@ -31,7 +31,7 @@
           <j-select
             :options="airportOptions"
             :values="departure"
-            @handle-select="applyDeparture"
+            @handleSelect="applyDeparture"
           />
         </div>
       </div>
@@ -41,7 +41,7 @@
           <j-select
             :options="airportOptions"
             :values="arrival"
-            @handle-select="applyArrival"
+            @handleSelect="applyArrival"
           />
         </div>
       </div>
@@ -51,7 +51,7 @@
           <j-select
             :options="airlineOptions"
             :values="airline"
-            @handle-select="applyAirline"
+            @handleSelect="applyAirline"
           />
         </div>
       </div>
@@ -61,7 +61,7 @@
           <j-select
             :options="boardingTypeOptions"
             :values="boardingType"
-            @handle-select="applyBoardingType"
+            @handleSelect="applyBoardingType"
           />
         </div>
       </div>
@@ -71,7 +71,7 @@
           <j-input
             :text="registration"
             placeholder="レジ"
-            @handle-input="applyRegistration"
+            @handleInput="applyRegistration"
           />
         </div>
       </div>

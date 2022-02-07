@@ -12,13 +12,13 @@
               <j-button
                 text="キャンセル"
                 style="margin: 0 12px"
-                @handle-click="cancel"
+                @handleClick="cancel"
               />
               <j-button
                 v-if="isConfirmed"
                 text="確定"
                 style="margin: 0 12px"
-                @handle-click="confirm"
+                @handleClick="confirm"
               />
             </div>
           </div>

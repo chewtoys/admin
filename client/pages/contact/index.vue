@@ -19,7 +19,7 @@
           :items="contactData !== undefined ? contactData : []"
           :page="activePage"
           :per-page="perPage"
-          @handle-page="applyPage"
+          @handlePage="applyPage"
         />
       </div>
     </modal>
