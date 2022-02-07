@@ -1,10 +1,8 @@
 <template>
-  <div class="container mx-auto">
-    <mode-change />
+  <div>
+    <nav-section />
     <nuxt />
-    <!--
-    <cookie-footer />
-    -->
+    <footer-section />
   </div>
 </template>
 
@@ -13,11 +11,13 @@ import { defineComponent, SetupContext } from '@nuxtjs/composition-api'
 
 import { provideLayout } from '~/composables/layout'
 
-const ModeChange = () => import('~/components/ModeChange.vue')
+const NavSection = () => import('~/components/NavSection.vue')
+const FooterSection = () => import('~/components/FooterSection.vue')
 
 export default defineComponent({
   components: {
-    ModeChange
+    NavSection,
+    FooterSection,
   },
   setup(props: {}, ctx: SetupContext) {
     provideLayout()
