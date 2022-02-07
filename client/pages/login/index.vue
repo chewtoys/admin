@@ -24,7 +24,7 @@
           <j-input
             placeholder="メールアドレス"
             :text="email"
-            @handle-input="applyEmail"
+            @handleInput="applyEmail"
           />
         </div>
         <div class="flex justify-center my-4 item-center">
@@ -33,11 +33,11 @@
             input-type="password"
             :text="password"
             password
-            @handle-input="applyPassword"
+            @handleInput="applyPassword"
           />
         </div>
         <div class="flex justify-center my-4 item-center">
-          <j-button text="ログイン" @handle-click="login" />
+          <j-button text="ログイン" @handleClick="login" />
         </div>
       </div>
     </div>

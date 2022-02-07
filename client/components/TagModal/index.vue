@@ -3,7 +3,7 @@
     <j-button
       ref="categoryModalButton"
       text="カテゴリーを選択"
-      @handle-click="displayModal"
+      @handleClick="displayModal"
     />
 
     <div>
@@ -47,9 +47,9 @@
                         :title="item.itemClassItemName"
                         :items="item.items"
                         :selected-ids="tags"
-                        @handle-item-class-all="updateItemClassAll"
-                        @handle-item-class="updateItemClass"
-                        @handle-deselect-item-class-all="deselectItemClassAll"
+                        @handleItemClassAll="updateItemClassAll"
+                        @handleItemClass="updateItemClass"
+                        @handleDeselectItemClassAll="deselectItemClassAll"
                       />
                     </div>
                   </div>
@@ -67,7 +67,7 @@
                       {{ tags.length }}
                     </span>
                   </div>
-                  <j-button text="全て削除" @handle-click="deselectTagAll" />
+                  <j-button text="全て削除" @handleClick="deselectTagAll" />
                 </div>
                 <div class="list">
                   <template v-if="tags.length === 0">
@@ -92,9 +92,9 @@
               <j-button
                 text="キャンセル"
                 style="margin-right: 0.8rem"
-                @handle-click="cancel"
+                @handleClick="cancel"
               />
-              <j-button text="確定" fill @handle-click="submit" />
+              <j-button text="確定" fill @handleClick="submit" />
             </div>
           </div>
         </div>
