@@ -137,6 +137,23 @@ export default {
         vueI18nLoader: true,
       },
     ],
+    [
+      '@nuxtjs/firebase',
+      {
+        config: {
+          apiKey: process.env.NUXT_APP_API_KEY,
+          authDomain: process.env.NUXT_APP_AUTH_DOMAIN,
+          projectId: process.env.NUXT_APP_PROJECT_ID,
+          storageBucket: process.env.NUXT_APP_BUCKET,
+          messagingSenderId: process.env.NUXT_APP_MESSAGING_SENDER_ID,
+          appId: process.env.NUXT_APP_ID,
+          measurementId: process.env.NUXT_APP_MEASUREMENT_ID,
+        },
+        services: {
+          auth: true,
+        },
+      },
+    ],
   ],
 
   apollo: {
@@ -149,7 +166,7 @@ export default {
 
   plugins: [
     '~/plugins/axios.ts',
-    '~/plugins/firebase.ts',
+    // '~/plugins/firebase.ts',
     '~/plugins/j-stylebook.ts',
     '~/plugins/picker.ts',
     '~/plugins/vue-chart.ts',
@@ -161,11 +178,16 @@ export default {
     // '~/plugins/vue-toasted.ts'
   ],
 
-  env: {
-    NUXT_APP_API_KEY: process.env.NUXT_APP_API_KEY,
-    NUXT_APP_AUTH_DOMAIN: process.env.NUXT_APP_AUTH_DOMAIN,
-    NUXT_APP_PROJECT_ID: process.env.NUXT_APP_PROJECT_ID,
-    NUXT_APP_GITHUB_TOKEN: process.env.NUXT_APP_GITHUB_TOKEN,
-    NUXT_APP_MEETUP_API: process.env.NUXT_APP_MEETUP_API,
+  publicRuntimeConfig: {
+    apiKey: process.env.NUXT_APP_API_KEY,
+    authDomain: process.env.NUXT_APP_AUTH_DOMAIN,
+    projectId: process.env.NUXT_APP_PROJECT_ID,
+    githubToken: process.env.NUXT_APP_GITHUB_TOKEN,
+    bucket: process.env.NUXT_APP_BUCKET,
+    meetupApi: process.env.NUXT_APP_MEETUP_API,
+  },
+
+  privateRuntimeConfig: {
+    //
   },
 }
