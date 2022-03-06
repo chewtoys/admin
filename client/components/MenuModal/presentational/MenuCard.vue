@@ -68,8 +68,8 @@
               <template v-if="currentSegment === key">
                 <div :key="segment" class="menu">
                   <a
-                    v-for="(item, index) in getItems"
-                    :key="index"
+                    v-for="(item, i) in getItems"
+                    :key="i"
                     :href="getMenuLink(item)"
                     :class="getColumns"
                     :style="`background-image: url(${item.image})`"
