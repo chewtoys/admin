@@ -1,27 +1,17 @@
 {
+  "extends": "../tsconfig.json",
   "compilerOptions": {
-    "target": "esnext",
-    "useDefineForClassFields": true,
     "module": "esnext",
-    "allowJs": true,
-    "moduleResolution": "node",
-    "strict": true,
-    "sourceMap": true,
+    "target": "esnext",
     "resolveJsonModule": true,
-    "esModuleInterop": true,
+    "useDefineForClassFields": true,
     "lib": ["esnext", "dom"],
     "types": ["vite/client"],
-    "baseUrl": "./",
+    "baseUrl": "./src",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["./*"]
     }
   },
-  "include": [
-    "src/**/*.js",
-    "src/**/*.ts",
-    "src/**/*.d.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue"
-  ],
-  "exclude": ["node_modules"]
+  "include": ["src/**/*.js", "src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "exclude": ["node_modules", "storybook-static"]
 }

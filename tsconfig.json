@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
     "experimentalDecorators": true,
     "allowJs": true,
     "noImplicitThis": true,
@@ -31,9 +30,10 @@
     "lib": ["esnext", "esnext.asynciterable", "dom"],
     "noImplicitAny": false,
     "noEmit": false,
+    "baseUrl": "./client",
     "paths": {
-      "~/*": ["./client/*"],
-      "@/*": ["./client/*"]
+      "~/*": ["./*"],
+      "@/*": ["./*"]
     }
   },
   "include": [
